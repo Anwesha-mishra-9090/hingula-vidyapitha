@@ -2,14 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { createAppRouter } from "./routeTree.gen";
+import { router } from "./routeTree.gen";
 import "./styles/globals.css";
 
 // Create a client
 const queryClient = new QueryClient();
-
-// Create router
-const router = createAppRouter();
 
 // Register router for type safety
 declare module "@tanstack/react-router" {

@@ -1,4 +1,4 @@
-import { createRootRoute, createRoute, createRouter as createTanStackRouter } from '@tanstack/react-router';
+import { createRootRoute, createRoute, createRouter } from '@tanstack/react-router';
 import { AppShell } from '@/components/layout/AppShell';
 
 // Import all route components
@@ -17,32 +17,21 @@ import GalleryPage from './routes/gallery';
 import NccPage from './routes/ncc';
 import NoticesPage from './routes/notices';
 
-// Create a simple React element helper to avoid JSX
-const createElement = (type: any, props: any, ...children: any[]) => {
-  return { type, props, children };
-};
-
 // Root route with AppShell layout
 const rootRoute = createRootRoute({
   component: ({ children }) => {
-    return createElement(AppShell, { children: children });
+    return AppShell({ children });
   },
   notFoundComponent: () => {
-    return createElement(
-      'div',
-      { className: 'flex min-h-screen items-center justify-center bg-background px-4' },
-      createElement(
-        'div',
-        { className: 'text-center' },
-        createElement('h1', { className: 'text-7xl font-bold text-foreground' }, '404'),
-        createElement('h2', { className: 'mt-4 text-xl font-semibold text-foreground' }, 'Page not found'),
-        createElement('p', { className: 'mt-2 text-sm text-muted-foreground' }, "The page you're looking for doesn't exist."),
-        createElement(
-          'a',
-          { href: '/', className: 'inline-block mt-6 px-4 py-2 rounded-md bg-primary text-primary-foreground' },
-          'Go home'
-        )
-      )
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background px-4">
+        <div className="text-center">
+          <h1 className="text-7xl font-bold text-foreground">404</h1>
+          <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+          <p className="mt-2 text-sm text-muted-foreground">The page you're looking for doesn't exist.</p>
+          <a href="/" className="inline-block mt-6 px-4 py-2 rounded-md bg-primary text-primary-foreground">Go home</a>
+        </div>
+      </div>
     );
   },
 });
@@ -81,13 +70,11 @@ const routeTree = rootRoute.addChildren([
   noticesRoute,
 ]);
 
-// Create router function (renamed to avoid conflict)
-export const createAppRouter = () => {
-  return createTanStackRouter({
-    routeTree,
-    defaultPreload: 'intent',
-    scrollRestoration: true,
-  });
-};
+// Create router
+export const router = createRouter({
+  routeTree,
+  defaultPreload: 'intent',
+  scrollRestoration: true,
+});
 
 export { routeTree };
