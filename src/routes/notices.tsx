@@ -202,4 +202,5 @@ function NoticesPage() {
       )}
     </div>
   );
-}
+}e x p o r t   d e f a u l t   N o t i c e s P a g e ;  
+ 

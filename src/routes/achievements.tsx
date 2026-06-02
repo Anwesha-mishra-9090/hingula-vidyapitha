@@ -1,10 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Award, Trophy } from "lucide-react";
-import { ACHIEVEMENTS } from "@/data/school";
 
-export const Route = createFileRoute("/achievements")({
-  component: AchievementsPage,
-});
+const ACHIEVEMENTS = [
+  { year: 2025, title: "100% Pass Rate — Class X HSC Examination", category: "Academic" },
+  { year: 2025, title: "District Champions — Inter-School Kabaddi", category: "Sports" },
+  { year: 2022, title: "Best NCC Unit — Jajpur District", category: "NCC" },
+  { year: 2022, title: "Prakruti Mitra Award", category: "Environment" },
+  { year: 2023, title: "State Level Winner - Kabaddi", category: "Sports" },
+];
 
 function AchievementsPage() {
   const byYear = ACHIEVEMENTS.reduce<Record<number, typeof ACHIEVEMENTS>>((acc, a) => {
@@ -48,3 +51,9 @@ function AchievementsPage() {
     </div>
   );
 }
+
+export const Route = createFileRoute("/achievements")({
+  component: AchievementsPage,
+});
+
+export default AchievementsPage;

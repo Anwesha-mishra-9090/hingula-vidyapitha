@@ -211,4 +211,5 @@ function FacultyPage() {
       </AnimatePresence>
     </div>
   );
-}
+}e x p o r t   d e f a u l t   F a c u l t y P a g e ;  
+ 
