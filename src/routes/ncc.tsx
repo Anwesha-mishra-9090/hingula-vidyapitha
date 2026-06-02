@@ -1,8 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Shield, Flag, Award, Users, Calendar, Target, Compass, HeartHandshake, BookOpen, Mountain, Trophy, ArrowRight } from "lucide-react";
 import { NCC_HIGHLIGHTS } from "@/data/gallery";
-import anoPortrait from "@/assets/ncc-ano.jpg";
 
 export const Route = createFileRoute("/ncc")({
   component: NCCPage,
@@ -11,20 +10,20 @@ export const Route = createFileRoute("/ncc")({
 const HERO = "/gallery/ncc/ncc-05.jpg";
 
 const timeline = [
-  { year: 2012, event: "NCC Unit Inauguration", detail: "Affiliated to 4(O) Composite Technical Coy NCC, Cuttack. Inaugurated by Lt. Col. M.S Dash, Commanding Officer." },
+  { year: 2012, event: "NCC Unit Inauguration", detail: "Affiliated to 4(O) Composite Technical Coy NCC, Cuttack." },
   { year: 2019, event: "First Republic Day Parade", detail: "Cadet contingent of 24 marches at the Jajpur district function." },
-  { year: 2021, event: "First Combined Annual Training Camp", detail: "30 cadets participated at the district HQ — drill, map-reading, weapon training and adventure activities." },
-  { year: 2022, event: "Best NCC Unit — Jajpur District", detail: "Awarded for discipline, attendance and parade excellence at the district NCC Day." },
-  { year: 2024, event: "Combined Annual Training Camp · Bhubaneswar", detail: "19–28 June 2024 · Dept. of Technical Education and Research." },
+  { year: 2021, event: "First Combined Annual Training Camp", detail: "30 cadets participated at the district HQ." },
+  { year: 2022, event: "Best NCC Unit — Jajpur District", detail: "Awarded for discipline and parade excellence." },
+  { year: 2024, event: "Combined Annual Training Camp", detail: "19–28 June 2024 at Bhubaneswar." },
 ];
 
 const trainingPillars = [
-  { icon: Footprints, title: "Drill & Parade", desc: "Weekly parade practice on the school ground. Foot drill, arms drill and ceremonial movements." },
-  { icon: Target, title: "Weapon Training", desc: "Familiarisation with .22 rifle under supervised range conditions during ATCs." },
-  { icon: Compass, title: "Map Reading & Field Craft", desc: "Direction-finding, contour reading, field signals and concealment." },
-  { icon: Mountain, title: "Adventure Activities", desc: "Trekking, obstacle course and rock-climbing through state-level adventure camps." },
-  { icon: HeartHandshake, title: "Social Service", desc: "Swachh Bharat drives, plantation, blood donation awareness and road-safety campaigns." },
-  { icon: BookOpen, title: "Institutional Training", desc: "Theory on NCC organisation, national integration, leadership and disaster management." },
+  { icon: Compass, title: "Drill & Parade", desc: "Weekly parade practice on the school ground." },
+  { icon: Target, title: "Weapon Training", desc: "Familiarisation with .22 rifle under supervised conditions." },
+  { icon: MapPin, title: "Map Reading", desc: "Direction-finding, contour reading, field signals." },
+  { icon: Mountain, title: "Adventure Activities", desc: "Trekking, obstacle course and rock-climbing." },
+  { icon: HeartHandshake, title: "Social Service", desc: "Swachh Bharat drives, plantation, awareness campaigns." },
+  { icon: BookOpen, title: "Institutional Training", desc: "Theory on NCC organisation and leadership." },
 ];
 
 const stats = [
@@ -78,28 +77,21 @@ function NCCPage() {
         })}
       </div>
 
-      {/* ANO Profile */}
-      <div className="grid lg:grid-cols-[1fr,1.5fr] gap-6">
-        <div className="rounded-xl overflow-hidden border border-border">
-          <img src={anoPortrait} alt="ANO Ranjan Kumar Mishra" className="w-full h-auto object-cover" />
-        </div>
-        <div className="space-y-4">
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">Officer Commanding</div>
-          <h2 className="font-display text-3xl font-bold">F/O Ranjan Kumar Mishra</h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Associate NCC Officer (ANO) and TGT Sanskrit & Odia at Hingula Vidya Pitha.
-            Commissioned through the Officers Training Academy, Kamptee, F/O Mishra leads
-            the cadet wing with focus on discipline, physical fitness, and the values of
-            service before self.
-          </p>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="p-3 rounded-lg bg-muted">
-              <div className="text-[10px] uppercase text-muted-foreground">Rank</div>
-              <div className="font-semibold mt-1">First Officer (ANO)</div>
-            </div>
-            <a href="tel:9777386536" className="p-3 rounded-lg bg-muted hover:bg-accent transition text-center">
-              <div className="text-[10px] uppercase text-muted-foreground">Contact</div>
-              <div className="font-mono font-semibold mt-1 text-primary">9777386536</div>
+      {/* ANO Profile - Without image */}
+      <div className="rounded-xl border border-border bg-gradient-to-r from-primary/10 to-gold/10 p-6">
+        <div className="flex flex-col md:flex-row md:items-center gap-4">
+          <div className="h-16 w-16 rounded-full bg-primary flex items-center justify-center">
+            <Shield className="h-8 w-8 text-white" />
+          </div>
+          <div>
+            <div className="text-xs uppercase tracking-wider text-muted-foreground">Associate NCC Officer</div>
+            <h2 className="font-display text-2xl font-bold">F/O Ranjan Kumar Mishra</h2>
+            <div className="text-sm text-muted-foreground">TGT Sanskrit & Odia · NCC ANO</div>
+            <p className="text-sm text-muted-foreground mt-2 max-w-2xl">
+              Leading the cadet wing with focus on discipline, physical fitness, and the values of service before self.
+            </p>
+            <a href="tel:9777386536" className="inline-block mt-3 text-sm text-primary hover:underline">
+              Contact: 9777386536
             </a>
           </div>
         </div>
@@ -156,15 +148,15 @@ function NCCPage() {
       <div>
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-display text-2xl font-bold">Cadet Life Gallery</h2>
-          <Link to="/gallery" className="text-sm text-primary hover:underline inline-flex items-center gap-1">
+          <a href="/gallery" className="text-sm text-primary hover:underline inline-flex items-center gap-1">
             View Full Gallery <ArrowRight className="h-3 w-3" />
-          </Link>
+          </a>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
           {NCC_HIGHLIGHTS.slice(0, 12).map((img) => (
-            <Link
+            <a
               key={img.src}
-              to="/gallery"
+              href="/gallery"
               className="group relative aspect-square overflow-hidden rounded-lg border border-border bg-muted"
             >
               <img
@@ -176,10 +168,12 @@ function NCCPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-2">
                 <span className="text-[10px] text-white font-medium line-clamp-2">{img.title}</span>
               </div>
-            </Link>
+            </a>
           ))}
         </div>
       </div>
     </div>
   );
 }
+
+export default NCCPage;
