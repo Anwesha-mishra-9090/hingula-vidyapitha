@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: oklch(0.975 0.012 85);
+    --foreground: oklch(0.18 0.04 255);
+    --primary: oklch(0.22 0.06 255);
+    --primary-foreground: oklch(0.98 0.01 85);
+    --gold: oklch(0.72 0.13 78);
+    --saffron: oklch(0.68 0.16 50);
+    --emerald: oklch(0.5 0.12 160);
+    --radius: 0.625rem;
+  }
+  
+  .dark {
+    --background: oklch(0.11 0.025 258);
+    --foreground: oklch(0.95 0.012 85);
+    --primary: oklch(0.72 0.13 78);
+  }
+  
+  * {
+    border-color: oklch(0.88 0.018 80);
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  h1, h2, h3, .font-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto max-w-[1400px] px-4 md:px-8;
+  }
+  
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .shadow-elegant {
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .divider-gold {
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    height: 1px;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, var(--gold), var(--saffron));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .text-gradient-eco {
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .text-gradient-energy {
+    background: linear-gradient(135deg, #00BCD4, #0288D1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* ===== SIMPLIFIED ANIMATIONS - NO CINEMATIC OVERLOAD ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.4s ease forwards;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-fade-in, .animate-slide-up, .animate-slide-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
