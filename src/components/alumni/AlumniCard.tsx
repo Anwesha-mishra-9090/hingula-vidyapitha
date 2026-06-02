@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { MapPin, Briefcase, Calendar } from 'lucide-react';
-import type { AlumniRecord } from '@/data/alumni';
+import { MapPin, Briefcase, Calendar } from "lucide-react";
+import type { AlumniRecord } from "@/data/alumni";
 
 interface AlumniCardProps {
   alumni: AlumniRecord;
@@ -12,7 +12,11 @@ export function AlumniCard({ alumni }: AlumniCardProps) {
     <div className="rounded-lg border border-border bg-card p-4 transition-all hover:shadow-md">
       <div className="flex items-start gap-3">
         <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-primary/10 font-display text-sm font-bold text-primary">
-          {alumni.name.split(' ').slice(-2).map(n => n[0]).join('')}
+          {alumni.name
+            .split(" ")
+            .slice(-2)
+            .map((n) => n[0])
+            .join("")}
         </div>
         <div className="min-w-0 flex-1">
           <div className="font-medium truncate">{alumni.name}</div>

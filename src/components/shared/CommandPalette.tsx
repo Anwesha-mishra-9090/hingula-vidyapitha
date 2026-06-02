@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Command } from 'cmdk';
-import { Search, Users, Bell, Award, BookOpen, Shield, Leaf, Zap } from 'lucide-react';
-import { FACULTY, NOTICES, ACHIEVEMENTS } from '@/data/school';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Command } from "cmdk";
+import { Search, Users, Bell, Award, BookOpen, Shield, Leaf, Zap } from "lucide-react";
+import { FACULTY, NOTICES, ACHIEVEMENTS } from "@/data/school";
 
 interface CommandPaletteProps {
   open: boolean;
@@ -12,18 +12,18 @@ interface CommandPaletteProps {
 }
 
 export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const router = useRouter();
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         onOpenChange(!open);
       }
     };
-    document.addEventListener('keydown', down);
-    return () => document.removeEventListener('keydown', down);
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
   }, [open, onOpenChange]);
 
   const handleNavigate = (href: string) => {
@@ -51,16 +51,19 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
             No results found.
           </Command.Empty>
 
-          <Command.Group heading="Pages" className="text-xs font-medium text-muted-foreground px-2 py-2">
+          <Command.Group
+            heading="Pages"
+            className="text-xs font-medium text-muted-foreground px-2 py-2"
+          >
             {[
-              { label: 'Dashboard', href: '/', icon: Search },
-              { label: 'About', href: '/about', icon: BookOpen },
-              { label: 'Faculty', href: '/faculty', icon: Users },
-              { label: 'NCC Unit', href: '/ncc', icon: Shield },
-              { label: 'Eco Club', href: '/eco-club', icon: Leaf },
-              { label: 'Energy Club', href: '/energy-club', icon: Zap },
-              { label: 'Notices', href: '/notices', icon: Bell },
-              { label: 'Achievements', href: '/achievements', icon: Award },
+              { label: "Dashboard", href: "/", icon: Search },
+              { label: "About", href: "/about", icon: BookOpen },
+              { label: "Faculty", href: "/faculty", icon: Users },
+              { label: "NCC Unit", href: "/ncc", icon: Shield },
+              { label: "Eco Club", href: "/eco-club", icon: Leaf },
+              { label: "Energy Club", href: "/energy-club", icon: Zap },
+              { label: "Notices", href: "/notices", icon: Bell },
+              { label: "Achievements", href: "/achievements", icon: Award },
             ].map((page) => (
               <Command.Item
                 key={page.href}
@@ -74,12 +77,15 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
             ))}
           </Command.Group>
 
-          <Command.Group heading="Faculty" className="text-xs font-medium text-muted-foreground px-2 py-2">
+          <Command.Group
+            heading="Faculty"
+            className="text-xs font-medium text-muted-foreground px-2 py-2"
+          >
             {FACULTY.slice(0, 5).map((faculty) => (
               <Command.Item
                 key={faculty.id}
                 value={faculty.name}
-                onSelect={() => handleNavigate('/faculty')}
+                onSelect={() => handleNavigate("/faculty")}
                 className="flex items-center gap-2 px-2 py-2 rounded-md cursor-pointer hover:bg-accent"
               >
                 <Users className="h-4 w-4" />
@@ -91,12 +97,15 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
             ))}
           </Command.Group>
 
-          <Command.Group heading="Notices" className="text-xs font-medium text-muted-foreground px-2 py-2">
+          <Command.Group
+            heading="Notices"
+            className="text-xs font-medium text-muted-foreground px-2 py-2"
+          >
             {NOTICES.slice(0, 5).map((notice) => (
               <Command.Item
                 key={notice.id}
                 value={notice.title}
-                onSelect={() => handleNavigate('/notices')}
+                onSelect={() => handleNavigate("/notices")}
                 className="flex items-center gap-2 px-2 py-2 rounded-md cursor-pointer hover:bg-accent"
               >
                 <Bell className="h-4 w-4" />

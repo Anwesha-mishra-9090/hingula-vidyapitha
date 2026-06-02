@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { usePathname, Link } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { usePathname, Link } from "next/navigation";
+import { motion } from "framer-motion";
 import {
   LayoutDashboard,
   Landmark,
@@ -17,25 +17,25 @@ import {
   Award,
   Phone,
   Images,
-} from 'lucide-react';
-import { LogoMark } from '@/components/shared/LogoMark';
-import { cn } from '@/lib/utils';
+} from "lucide-react";
+import { LogoMark } from "@/components/shared/LogoMark";
+import { cn } from "@/lib/utils";
 
 const navItems = [
-  { icon: LayoutDashboard, label: 'Dashboard', href: '/' },
-  { icon: Landmark, label: 'About', href: '/about' },
-  { icon: BookOpen, label: 'Academics', href: '/academics' },
-  { icon: Users, label: 'Faculty', href: '/faculty' },
-  { icon: Trophy, label: 'Excellence', href: '/excellence' },
-  { icon: Network, label: 'Alumni', href: '/alumni' },
-  { icon: Shield, label: 'NCC Unit', href: '/ncc' },
-  { icon: Leaf, label: 'Eco Club', href: '/eco-club' },
-  { icon: Zap, label: 'Energy Club', href: '/energy-club' },
-  { icon: Sparkles, label: 'Campus Life', href: '/campus-life' },
-  { icon: Images, label: 'Gallery', href: '/gallery' },
-  { icon: Bell, label: 'Notices', href: '/notices' },
-  { icon: Award, label: 'Achievements', href: '/achievements' },
-  { icon: Phone, label: 'Contact', href: '/contact' },
+  { icon: LayoutDashboard, label: "Dashboard", href: "/" },
+  { icon: Landmark, label: "About", href: "/about" },
+  { icon: BookOpen, label: "Academics", href: "/academics" },
+  { icon: Users, label: "Faculty", href: "/faculty" },
+  { icon: Trophy, label: "Excellence", href: "/excellence" },
+  { icon: Network, label: "Alumni", href: "/alumni" },
+  { icon: Shield, label: "NCC Unit", href: "/ncc" },
+  { icon: Leaf, label: "Eco Club", href: "/eco-club" },
+  { icon: Zap, label: "Energy Club", href: "/energy-club" },
+  { icon: Sparkles, label: "Campus Life", href: "/campus-life" },
+  { icon: Images, label: "Gallery", href: "/gallery" },
+  { icon: Bell, label: "Notices", href: "/notices" },
+  { icon: Award, label: "Achievements", href: "/achievements" },
+  { icon: Phone, label: "Contact", href: "/contact" },
 ];
 
 export function Sidebar() {
@@ -48,7 +48,9 @@ export function Sidebar() {
         <div className="flex h-16 items-center gap-2 border-b border-border px-4">
           <LogoMark size={36} />
           <div>
-            <div className="font-display text-sm font-semibold leading-tight">Hingula Vidya Pitha</div>
+            <div className="font-display text-sm font-semibold leading-tight">
+              Hingula Vidya Pitha
+            </div>
             <div className="text-[9px] text-muted-foreground">BSE Odisha · Est. 1992</div>
           </div>
         </div>
@@ -64,10 +66,10 @@ export function Sidebar() {
                   <Link
                     href={item.href}
                     className={cn(
-                      'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all',
+                      "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all",
                       isActive
-                        ? 'bg-primary text-primary-foreground'
-                        : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+                        ? "bg-primary text-primary-foreground"
+                        : "text-muted-foreground hover:bg-accent hover:text-foreground"
                     )}
                   >
                     <Icon className="h-4 w-4" />
@@ -89,7 +91,9 @@ export function Sidebar() {
         <div className="border-t border-border p-4">
           <div className="rounded-lg bg-muted p-3 text-center">
             <div className="text-[10px] text-muted-foreground">Government Aided School</div>
-            <div className="text-[9px] text-muted-foreground">AT/PO-Bhotaka, Kuakhia, Dist-Jajpur</div>
+            <div className="text-[9px] text-muted-foreground">
+              AT/PO-Bhotaka, Kuakhia, Dist-Jajpur
+            </div>
           </div>
         </div>
       </div>

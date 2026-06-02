@@ -37,17 +37,39 @@ export function buildPdf({ title, body, meta = [], footer }: PdfInput): Blob {
 
   const stream: string[] = ["BT", "/F2 18 Tf", `${margin} ${y} Td`, `(${escape(title)}) Tj`, "ET"];
   y -= 28;
-  stream.push("q", "0.7 0.55 0.15 RG", "1.4 w", `${margin} ${y} m`, `${margin + 120} ${y} l`, "S", "Q");
+  stream.push(
+    "q",
+    "0.7 0.55 0.15 RG",
+    "1.4 w",
+    `${margin} ${y} m`,
+    `${margin + 120} ${y} l`,
+    "S",
+    "Q"
+  );
   y -= 22;
 
   if (meta.length) {
     for (const m of meta) {
-      stream.push("BT", "/F2 9 Tf", `${margin} ${y} Td`, `(${escape(m.label.toUpperCase())}) Tj`, "ET");
+      stream.push(
+        "BT",
+        "/F2 9 Tf",
+        `${margin} ${y} Td`,
+        `(${escape(m.label.toUpperCase())}) Tj`,
+        "ET"
+      );
       stream.push("BT", "/F1 11 Tf", `${margin + 110} ${y} Td`, `(${escape(m.value)}) Tj`, "ET");
       y -= 16;
     }
     y -= 8;
-    stream.push("q", "0.85 0.85 0.85 RG", "0.5 w", `${margin} ${y} m`, `${595 - margin} ${y} l`, "S", "Q");
+    stream.push(
+      "q",
+      "0.85 0.85 0.85 RG",
+      "0.5 w",
+      `${margin} ${y} m`,
+      `${595 - margin} ${y} l`,
+      "S",
+      "Q"
+    );
     y -= 18;
   }
 
@@ -64,7 +86,8 @@ export function buildPdf({ title, body, meta = [], footer }: PdfInput): Blob {
   const objects: string[] = [];
   objects[0] = "<< /Type /Catalog /Pages 2 0 R >>";
   objects[1] = "<< /Type /Pages /Kids [3 0 R] /Count 1 >>";
-  objects[2] = "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>";
+  objects[2] =
+    "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>";
   objects[3] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>";
   objects[4] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>";
   objects[5] = `<< /Length ${content.length} >>\nstream\n${content}\nendstream`;

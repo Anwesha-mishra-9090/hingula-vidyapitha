@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
 interface GalleryImage {
   src: string;
@@ -68,32 +68,24 @@ export function FacilityGallery({ images }: FacilityGalleryProps) {
           >
             <X className="h-6 w-6" />
           </button>
-          
-          <button
-            onClick={prevImage}
-            className="absolute left-4 text-white/70 hover:text-white"
-          >
+
+          <button onClick={prevImage} className="absolute left-4 text-white/70 hover:text-white">
             <ChevronLeft className="h-8 w-8" />
           </button>
-          
+
           <div className="max-h-[85vh] max-w-[85vw]">
             <img
               src={images[currentIndex].src}
               alt={images[currentIndex].caption}
               className="max-h-[80vh] max-w-[80vw] rounded-lg object-contain"
             />
-            <p className="mt-4 text-center text-sm text-white/80">
-              {images[currentIndex].caption}
-            </p>
+            <p className="mt-4 text-center text-sm text-white/80">{images[currentIndex].caption}</p>
           </div>
-          
-          <button
-            onClick={nextImage}
-            className="absolute right-4 text-white/70 hover:text-white"
-          >
+
+          <button onClick={nextImage} className="absolute right-4 text-white/70 hover:text-white">
             <ChevronRight className="h-8 w-8" />
           </button>
-          
+
           <div className="absolute bottom-4 text-sm text-white/50">
             {currentIndex + 1} / {images.length}
           </div>

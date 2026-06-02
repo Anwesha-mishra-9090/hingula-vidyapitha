@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import { ChevronRight, Home } from 'lucide-react';
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { ChevronRight, Home } from "lucide-react";
 
 export function Breadcrumbs() {
   const pathname = usePathname();
-  const segments = pathname.split('/').filter(Boolean);
+  const segments = pathname.split("/").filter(Boolean);
 
   const getLabel = (segment: string) => {
     return segment
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
   };
 
   return (
@@ -26,7 +26,10 @@ export function Breadcrumbs() {
           {index === segments.length - 1 ? (
             <span className="text-foreground font-medium">{getLabel(segment)}</span>
           ) : (
-            <Link href={`/${segments.slice(0, index + 1).join('/')}`} className="hover:text-primary transition">
+            <Link
+              href={`/${segments.slice(0, index + 1).join("/")}`}
+              className="hover:text-primary transition"
+            >
               {getLabel(segment)}
             </Link>
           )}

@@ -1,17 +1,20 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Bell, ChevronRight } from 'lucide-react';
-import { NOTICES } from '@/data/school';
+import Link from "next/link";
+import { Bell, ChevronRight } from "lucide-react";
+import { NOTICES } from "@/data/school";
 
 export function NoticeSection() {
   const latestNotices = NOTICES.slice(0, 5);
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high': return 'bg-red-500';
-      case 'medium': return 'bg-amber-500';
-      default: return 'bg-green-500';
+      case "high":
+        return "bg-red-500";
+      case "medium":
+        return "bg-amber-500";
+      default:
+        return "bg-green-500";
     }
   };
 
@@ -22,11 +25,14 @@ export function NoticeSection() {
           <Bell className="h-5 w-5 text-primary" />
           <h3 className="font-display text-lg font-semibold">Latest Notices</h3>
         </div>
-        <Link href="/notices" className="flex items-center gap-1 text-xs text-primary hover:underline">
+        <Link
+          href="/notices"
+          className="flex items-center gap-1 text-xs text-primary hover:underline"
+        >
           View all <ChevronRight className="h-3 w-3" />
         </Link>
       </div>
-      
+
       <div className="space-y-3">
         {latestNotices.map((notice) => (
           <Link

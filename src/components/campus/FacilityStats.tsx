@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 interface Stat {
   label: string;
@@ -25,7 +25,8 @@ export function FacilityStats({ stats, accent }: FacilityStatsProps) {
           className="rounded-lg border border-border bg-card p-4 text-center"
         >
           <div className="font-display text-3xl font-bold" style={{ color: accent }}>
-            {stat.value.toLocaleString()}{stat.suffix || ''}
+            {stat.value.toLocaleString()}
+            {stat.suffix || ""}
           </div>
           <div className="mt-1 text-xs text-muted-foreground">{stat.label}</div>
         </motion.div>

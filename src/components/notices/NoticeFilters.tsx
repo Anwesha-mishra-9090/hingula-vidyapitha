@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Search } from 'lucide-react';
+import { Search } from "lucide-react";
 
 interface NoticeFiltersProps {
   search: string;
@@ -29,7 +29,7 @@ export function NoticeFilters({
           className="h-10 w-full rounded-lg border border-border bg-background pl-9 pr-4 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
         />
       </div>
-      
+
       <div className="flex flex-wrap gap-2">
         {categories.map((cat) => (
           <button
@@ -37,8 +37,8 @@ export function NoticeFilters({
             onClick={() => onCategoryChange(cat)}
             className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition ${
               category === cat
-                ? 'bg-primary text-primary-foreground'
-                : 'border border-border bg-card hover:bg-accent'
+                ? "bg-primary text-primary-foreground"
+                : "border border-border bg-card hover:bg-accent"
             }`}
           >
             {cat}

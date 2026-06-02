@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 interface ClubHeaderProps {
   title: string;
@@ -26,15 +26,17 @@ export function ClubHeader({
     <div className="relative overflow-hidden rounded-2xl">
       <div className="absolute inset-0">
         <img src={heroImage} alt={title} className="h-full w-full object-cover" />
-        <div className={`absolute inset-0 bg-gradient-to-r from-${gradientFrom}/90 to-${gradientTo}/70`} />
+        <div
+          className={`absolute inset-0 bg-gradient-to-r from-${gradientFrom}/90 to-${gradientTo}/70`}
+        />
       </div>
-      
+
       <div className="relative p-8 text-white md:p-12">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
           {icon}
           {subtitle}
         </div>
-        
+
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,7 +44,7 @@ export function ClubHeader({
         >
           {title}
         </motion.h1>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

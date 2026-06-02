@@ -45,3 +45,4 @@ bun run build
 
 # Preview production build
 bun preview
+```

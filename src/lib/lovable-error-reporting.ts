@@ -8,7 +8,7 @@ type LovableEvents = {
   captureException?: (
     error: unknown,
     context?: Record<string, unknown>,
-    options?: LovableErrorOptions,
+    options?: LovableErrorOptions
   ) => void;
 };
 
@@ -31,6 +31,6 @@ export function reportLovableError(error: unknown, context: Record<string, unkno
       mechanism: "react_error_boundary",
       handled: false,
       severity: "error",
-    },
+    }
   );
 }

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { FacultyCard } from './FacultyCard';
-import { type Faculty } from '@/data/school';
+import { motion } from "framer-motion";
+import { FacultyCard } from "./FacultyCard";
+import { type Faculty } from "@/data/school";
 
 interface FacultyDepartmentSectionProps {
   department: string;
@@ -10,7 +10,11 @@ interface FacultyDepartmentSectionProps {
   onFacultyClick: (faculty: Faculty) => void;
 }
 
-export function FacultyDepartmentSection({ department, faculty, onFacultyClick }: FacultyDepartmentSectionProps) {
+export function FacultyDepartmentSection({
+  department,
+  faculty,
+  onFacultyClick,
+}: FacultyDepartmentSectionProps) {
   if (faculty.length === 0) return null;
 
   return (

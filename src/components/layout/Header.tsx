@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Menu, Search, Sun, Moon, Bell } from 'lucide-react';
-import { useTheme } from 'next-themes';
-import { LogoMark } from '@/components/shared/LogoMark';
-import { Button } from '@/components/ui/button';
+import { useState, useEffect } from "react";
+import { Menu, Search, Sun, Moon, Bell } from "lucide-react";
+import { useTheme } from "next-themes";
+import { LogoMark } from "@/components/shared/LogoMark";
+import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -14,13 +14,13 @@ interface HeaderProps {
 export function Header({ onMenuClick, onSearchClick }: HeaderProps) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [time, setTime] = useState<string>('');
+  const [time, setTime] = useState<string>("");
 
   useEffect(() => {
     setMounted(true);
     const updateTime = () => {
       const now = new Date();
-      setTime(now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }));
+      setTime(now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" }));
     };
     updateTime();
     const interval = setInterval(updateTime, 60000);
@@ -59,14 +59,14 @@ export function Header({ onMenuClick, onSearchClick }: HeaderProps) {
           <Button variant="ghost" size="icon" className="md:hidden" onClick={onSearchClick}>
             <Search className="h-5 w-5" />
           </Button>
-          
+
           {mounted && (
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
-              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
           )}
 

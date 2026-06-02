@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Shield } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Shield } from "lucide-react";
 
 interface NCCHeaderProps {
   title: string;
@@ -16,13 +16,13 @@ export function NCCHeader({ title, subtitle, heroImage }: NCCHeaderProps) {
         <img src={heroImage} alt="NCC" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/50" />
       </div>
-      
+
       <div className="relative p-8 text-white md:p-12">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
           <Shield className="h-3 w-3" />
           National Cadet Corps
         </div>
-        
+
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export function NCCHeader({ title, subtitle, heroImage }: NCCHeaderProps) {
         >
           {title}
         </motion.h1>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

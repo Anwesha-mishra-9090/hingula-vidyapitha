@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { Link } from 'next/navigation';
-import { Bell, Pause, Play } from 'lucide-react';
-import { NOTICE_RECORDS } from '@/data/notices';
+import { useEffect, useState } from "react";
+import { Link } from "next/navigation";
+import { Bell, Pause, Play } from "lucide-react";
+import { NOTICE_RECORDS } from "@/data/notices";
 
 export function NoticeTicker() {
   const [paused, setPaused] = useState(false);
@@ -39,11 +39,11 @@ export function NoticeTicker() {
               >
                 <span
                   className={`h-2 w-2 rounded-full ${
-                    notice.priority === 'high'
-                      ? 'bg-red-500'
-                      : notice.priority === 'medium'
-                      ? 'bg-amber-500'
-                      : 'bg-green-500'
+                    notice.priority === "high"
+                      ? "bg-red-500"
+                      : notice.priority === "medium"
+                        ? "bg-amber-500"
+                        : "bg-green-500"
                   }`}
                 />
                 <span className="font-medium">{notice.title}</span>

@@ -13,7 +13,7 @@ import {
   Award,
   Phone,
   Images,
-} from 'lucide-react';
+} from "lucide-react";
 
 export interface NavItem {
   label: string;
@@ -150,15 +150,13 @@ export const navigation: NavGroup[] = [
 ];
 
 export const getAllNavItems = (): NavItem[] => {
-  return navigation.flatMap(group => group.items);
+  return navigation.flatMap((group) => group.items);
 };
 
 export const getNavItemByHref = (href: string): NavItem | undefined => {
-  return getAllNavItems().find(item => item.href === href);
+  return getAllNavItems().find((item) => item.href === href);
 };
 
 export const getNavGroupByHref = (href: string): NavGroup | undefined => {
-  return navigation.find(group => 
-    group.items.some(item => item.href === href)
-  );
+  return navigation.find((group) => group.items.some((item) => item.href === href));
 };

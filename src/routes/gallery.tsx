@@ -14,14 +14,14 @@ function GalleryPage() {
 
   const filtered = useMemo(() => {
     if (category === "All") return GALLERY_IMAGES;
-    return GALLERY_IMAGES.filter(img => img.cat === category);
+    return GALLERY_IMAGES.filter((img) => img.cat === category);
   }, [category]);
 
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = { All: GALLERY_IMAGES.length };
-    GALLERY_CATEGORIES.forEach(cat => {
+    GALLERY_CATEGORIES.forEach((cat) => {
       if (cat !== "All") {
-        counts[cat] = GALLERY_IMAGES.filter(img => img.cat === cat).length;
+        counts[cat] = GALLERY_IMAGES.filter((img) => img.cat === cat).length;
       }
     });
     return counts;
@@ -54,8 +54,8 @@ function GalleryPage() {
         </div>
         <h1 className="font-display text-3xl md:text-5xl font-bold mt-1">Campus Gallery</h1>
         <p className="text-muted-foreground mt-3 max-w-2xl">
-          {GALLERY_IMAGES.length} curated moments from our parade ground, classrooms, cultural stages,
-          camps and community drives.
+          {GALLERY_IMAGES.length} curated moments from our parade ground, classrooms, cultural
+          stages, camps and community drives.
         </p>
       </header>
 
@@ -72,9 +72,11 @@ function GalleryPage() {
             }`}
           >
             {cat}
-            <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-              category === cat ? "bg-primary-foreground/20" : "bg-muted text-muted-foreground"
-            }`}>
+            <span
+              className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                category === cat ? "bg-primary-foreground/20" : "bg-muted text-muted-foreground"
+              }`}
+            >
               {categoryCounts[cat]}
             </span>
           </button>
@@ -106,7 +108,8 @@ function GalleryPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                 <div className="text-white">
                   <div className="text-[10px] uppercase tracking-wider text-gold font-semibold">
-                    {img.cat}{img.date ? ` · ${img.date}` : ""}
+                    {img.cat}
+                    {img.date ? ` · ${img.date}` : ""}
                   </div>
                   <div className="text-sm font-medium leading-snug">{img.title}</div>
                 </div>
@@ -165,7 +168,8 @@ function GalleryPage() {
 
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center text-white">
               <div className="text-[10px] uppercase tracking-wider text-gold font-semibold">
-                {currentImage.cat}{currentImage.date ? ` · ${currentImage.date}` : ""}
+                {currentImage.cat}
+                {currentImage.date ? ` · ${currentImage.date}` : ""}
               </div>
               <div className="text-sm">
                 {currentImage.title} · {lightboxIndex + 1} / {filtered.length}
@@ -176,4 +180,5 @@ function GalleryPage() {
       </AnimatePresence>
     </div>
   );
-}export default GalleryPage;
+}
+export default GalleryPage;

@@ -1,24 +1,27 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    name: 'Parent of Class X Student',
-    role: 'Parent',
-    content: 'The dedicated teachers and disciplined environment at Hingula Vidya Pitha have transformed my child\'s academic journey.',
+    name: "Parent of Class X Student",
+    role: "Parent",
+    content:
+      "The dedicated teachers and disciplined environment at Hingula Vidya Pitha have transformed my child's academic journey.",
   },
   {
-    name: 'Alumni Batch 2015',
-    role: 'Software Engineer',
-    content: 'The values and education I received here laid the foundation for my career. Grateful to my teachers.',
+    name: "Alumni Batch 2015",
+    role: "Software Engineer",
+    content:
+      "The values and education I received here laid the foundation for my career. Grateful to my teachers.",
   },
   {
-    name: 'Local Community Member',
-    role: 'Panchayat Member',
-    content: 'This school has been a pillar of our community for over three decades, shaping generations of students.',
+    name: "Local Community Member",
+    role: "Panchayat Member",
+    content:
+      "This school has been a pillar of our community for over three decades, shaping generations of students.",
   },
 ];
 
@@ -38,7 +41,7 @@ export function TestimonialSection() {
   return (
     <div className="rounded-xl border border-border bg-gradient-to-br from-primary/5 to-transparent p-6">
       <Quote className="mx-auto h-8 w-8 text-primary/30" />
-      
+
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -54,7 +57,7 @@ export function TestimonialSection() {
           </div>
         </motion.div>
       </AnimatePresence>
-      
+
       <div className="mt-6 flex items-center justify-center gap-2">
         <button onClick={prev} className="rounded-full p-1 hover:bg-accent">
           <ChevronLeft className="h-4 w-4" />
@@ -65,7 +68,7 @@ export function TestimonialSection() {
               key={i}
               onClick={() => setCurrent(i)}
               className={`h-1.5 w-1.5 rounded-full transition ${
-                i === current ? 'bg-primary w-3' : 'bg-muted-foreground/30'
+                i === current ? "bg-primary w-3" : "bg-muted-foreground/30"
               }`}
             />
           ))}

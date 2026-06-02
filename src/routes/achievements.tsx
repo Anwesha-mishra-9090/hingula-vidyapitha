@@ -14,7 +14,9 @@ function AchievementsPage() {
     (acc[a.year] ??= []).push(a);
     return acc;
   }, {});
-  const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
+  const years = Object.keys(byYear)
+    .map(Number)
+    .sort((a, b) => b - a);
 
   return (
     <div className="container py-8">
@@ -36,11 +38,16 @@ function AchievementsPage() {
             </div>
             <div className="grid md:grid-cols-2 gap-3">
               {byYear[y].map((a, i) => (
-                <div key={i} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">
+                <div
+                  key={i}
+                  className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card"
+                >
                   <Award className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="font-semibold">{a.title}</div>
-                    <div className="text-[10px] uppercase text-muted-foreground mt-1">{a.category}</div>
+                    <div className="text-[10px] uppercase text-muted-foreground mt-1">
+                      {a.category}
+                    </div>
                   </div>
                 </div>
               ))}

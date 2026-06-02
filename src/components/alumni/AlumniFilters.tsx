@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { Search } from 'lucide-react';
+import { Search } from "lucide-react";
 
 interface AlumniFiltersProps {
   search: string;
   onSearchChange: (value: string) => void;
-  batch: number | 'all';
-  onBatchChange: (value: number | 'all') => void;
+  batch: number | "all";
+  onBatchChange: (value: number | "all") => void;
   profession: string;
   onProfessionChange: (value: string) => void;
   batches: number[];
@@ -35,27 +35,29 @@ export function AlumniFilters({
           className="h-10 w-full rounded-lg border border-border bg-background pl-9 pr-4 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
         />
       </div>
-      
+
       <div className="flex flex-wrap gap-3">
         <select
-          value={batch === 'all' ? 'all' : String(batch)}
-          onChange={(e) => onBatchChange(e.target.value === 'all' ? 'all' : Number(e.target.value))}
+          value={batch === "all" ? "all" : String(batch)}
+          onChange={(e) => onBatchChange(e.target.value === "all" ? "all" : Number(e.target.value))}
           className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm outline-none focus:border-primary"
         >
           <option value="all">All Batches</option>
-          {batches.map(y => (
-            <option key={y} value={y}>Batch {y}</option>
+          {batches.map((y) => (
+            <option key={y} value={y}>
+              Batch {y}
+            </option>
           ))}
         </select>
-        
+
         <select
           value={profession}
           onChange={(e) => onProfessionChange(e.target.value)}
           className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm outline-none focus:border-primary"
         >
-          {professions.map(p => (
+          {professions.map((p) => (
             <option key={p} value={p}>
-              {p === 'all' ? 'All Professions' : p}
+              {p === "all" ? "All Professions" : p}
             </option>
           ))}
         </select>

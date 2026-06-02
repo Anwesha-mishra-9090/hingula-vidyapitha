@@ -7,7 +7,8 @@ export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "";
 export const DEFAULT_META = {
   title: APP_NAME,
   description: APP_DESCRIPTION,
-  image: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/74fb585c-6b46-4814-9da5-f122792b0feb",
+  image:
+    "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/74fb585c-6b46-4814-9da5-f122792b0feb",
   url: `https://${APP_DOMAIN}`,
 };
 

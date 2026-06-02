@@ -2,7 +2,8 @@ export const siteConfig = {
   name: "Hingula Vidya Pitha",
   shortName: "HVP",
   domain: "hingula-vidyapitha.lovable.app",
-  description: "Government aided high school under Board of Secondary Education, Odisha. Established in 1992, providing quality education in Bhotaka, Kuakhia, Jajpur district.",
+  description:
+    "Government aided high school under Board of Secondary Education, Odisha. Established in 1992, providing quality education in Bhotaka, Kuakhia, Jajpur district.",
   keywords: [
     "school",
     "education",

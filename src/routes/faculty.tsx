@@ -14,21 +14,22 @@ function FacultyPage() {
   const [selectedFaculty, setSelectedFaculty] = useState<Faculty | null>(null);
 
   const departments = useMemo(() => {
-    const depts = new Set(FACULTY.map(f => f.department));
+    const depts = new Set(FACULTY.map((f) => f.department));
     return ["all", ...Array.from(depts).sort()];
   }, []);
 
   const filtered = useMemo(() => {
     let result = FACULTY;
     if (department !== "all") {
-      result = result.filter(f => f.department === department);
+      result = result.filter((f) => f.department === department);
     }
     if (search.trim()) {
       const term = search.toLowerCase();
-      result = result.filter(f => 
-        f.name.toLowerCase().includes(term) ||
-        f.designation.toLowerCase().includes(term) ||
-        f.department.toLowerCase().includes(term)
+      result = result.filter(
+        (f) =>
+          f.name.toLowerCase().includes(term) ||
+          f.designation.toLowerCase().includes(term) ||
+          f.department.toLowerCase().includes(term)
       );
     }
     return result;
@@ -41,20 +42,20 @@ function FacultyPage() {
         <div className="text-xs uppercase tracking-wider text-muted-foreground">Directory</div>
         <h1 className="font-display text-3xl md:text-5xl font-bold mt-1">Faculty & Staff</h1>
         <p className="text-muted-foreground mt-3 max-w-2xl">
-          The dedicated educators and staff of Hingula Vidya Pitha — guiding students across academics, 
-          sports, and the NCC wing with commitment and care.
+          The dedicated educators and staff of Hingula Vidya Pitha — guiding students across
+          academics, sports, and the NCC wing with commitment and care.
         </p>
       </header>
 
       {/* Department Filters */}
       <div className="flex flex-wrap gap-2 mb-4">
-        {departments.map(dept => (
+        {departments.map((dept) => (
           <button
             key={dept}
             onClick={() => setDepartment(dept)}
             className={`px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition ${
-              department === dept 
-                ? "bg-primary text-primary-foreground" 
+              department === dept
+                ? "bg-primary text-primary-foreground"
                 : "bg-card border border-border hover:bg-accent"
             }`}
           >
@@ -93,10 +94,18 @@ function FacultyPage() {
               <div className="flex items-start gap-3">
                 <div className="relative h-14 w-14 rounded-full overflow-hidden bg-gradient-to-br from-primary to-blue-900 flex-shrink-0">
                   {faculty.photo ? (
-                    <img src={faculty.photo} alt={faculty.name} className="h-full w-full object-cover" />
+                    <img
+                      src={faculty.photo}
+                      alt={faculty.name}
+                      className="h-full w-full object-cover"
+                    />
                   ) : (
                     <div className="h-full w-full flex items-center justify-center text-white font-bold text-lg">
-                      {faculty.name.split(" ").map(n => n[0]).slice(0, 2).join("")}
+                      {faculty.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .slice(0, 2)
+                        .join("")}
                     </div>
                   )}
                   {faculty.badge && (
@@ -108,7 +117,9 @@ function FacultyPage() {
                 <div className="flex-1 min-w-0">
                   <div className="font-semibold truncate">{faculty.name}</div>
                   <div className="text-xs text-muted-foreground mt-0.5">{faculty.designation}</div>
-                  <div className="text-[10px] uppercase text-muted-foreground mt-1">{faculty.department}</div>
+                  <div className="text-[10px] uppercase text-muted-foreground mt-1">
+                    {faculty.department}
+                  </div>
                 </div>
               </div>
               <div className="mt-3 flex items-center gap-2 text-xs text-primary">
@@ -148,10 +159,18 @@ function FacultyPage() {
                 <div className="flex flex-col items-center text-center">
                   <div className="h-24 w-24 rounded-full overflow-hidden bg-gradient-to-br from-primary to-blue-900">
                     {selectedFaculty.photo ? (
-                      <img src={selectedFaculty.photo} alt={selectedFaculty.name} className="h-full w-full object-cover" />
+                      <img
+                        src={selectedFaculty.photo}
+                        alt={selectedFaculty.name}
+                        className="h-full w-full object-cover"
+                      />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center text-white text-3xl font-bold">
-                        {selectedFaculty.name.split(" ").map(n => n[0]).slice(0, 2).join("")}
+                        {selectedFaculty.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .slice(0, 2)
+                          .join("")}
                       </div>
                     )}
                   </div>
@@ -211,4 +230,5 @@ function FacultyPage() {
       </AnimatePresence>
     </div>
   );
-}export default FacultyPage;
+}
+export default FacultyPage;

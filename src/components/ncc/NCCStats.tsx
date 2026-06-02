@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Users, Award, Flag, Calendar, Trophy, Shield } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Users, Award, Flag, Calendar, Trophy, Shield } from "lucide-react";
 
 interface Stat {
   icon: any;
@@ -10,12 +10,12 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { icon: Users, label: 'Active Cadets', value: '50' },
-  { icon: Award, label: 'District Awards', value: '8' },
-  { icon: Flag, label: 'Camps Attended', value: '18' },
-  { icon: Trophy, label: 'Best Cadet Honours', value: '6' },
-  { icon: Calendar, label: 'Established', value: '2012' },
-  { icon: Shield, label: 'Parent Unit', value: '4(O) CTC' },
+  { icon: Users, label: "Active Cadets", value: "50" },
+  { icon: Award, label: "District Awards", value: "8" },
+  { icon: Flag, label: "Camps Attended", value: "18" },
+  { icon: Trophy, label: "Best Cadet Honours", value: "6" },
+  { icon: Calendar, label: "Established", value: "2012" },
+  { icon: Shield, label: "Parent Unit", value: "4(O) CTC" },
 ];
 
 export function NCCStats() {

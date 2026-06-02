@@ -1,6 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Shield, Flag, Award, Users, Calendar, Target, Compass, HeartHandshake, BookOpen, Mountain, Trophy, ArrowRight } from "lucide-react";
+import {
+  Shield,
+  Flag,
+  Award,
+  Users,
+  Calendar,
+  Target,
+  Compass,
+  HeartHandshake,
+  BookOpen,
+  Mountain,
+  Trophy,
+  ArrowRight,
+} from "lucide-react";
 import { NCC_HIGHLIGHTS } from "@/data/gallery";
 
 export const Route = createFileRoute("/ncc")({
@@ -10,20 +23,56 @@ export const Route = createFileRoute("/ncc")({
 const HERO = "/gallery/ncc/ncc-05.jpg";
 
 const timeline = [
-  { year: 2012, event: "NCC Unit Inauguration", detail: "Affiliated to 4(O) Composite Technical Coy NCC, Cuttack." },
-  { year: 2019, event: "First Republic Day Parade", detail: "Cadet contingent of 24 marches at the Jajpur district function." },
-  { year: 2021, event: "First Combined Annual Training Camp", detail: "30 cadets participated at the district HQ." },
-  { year: 2022, event: "Best NCC Unit — Jajpur District", detail: "Awarded for discipline and parade excellence." },
+  {
+    year: 2012,
+    event: "NCC Unit Inauguration",
+    detail: "Affiliated to 4(O) Composite Technical Coy NCC, Cuttack.",
+  },
+  {
+    year: 2019,
+    event: "First Republic Day Parade",
+    detail: "Cadet contingent of 24 marches at the Jajpur district function.",
+  },
+  {
+    year: 2021,
+    event: "First Combined Annual Training Camp",
+    detail: "30 cadets participated at the district HQ.",
+  },
+  {
+    year: 2022,
+    event: "Best NCC Unit — Jajpur District",
+    detail: "Awarded for discipline and parade excellence.",
+  },
   { year: 2024, event: "Combined Annual Training Camp", detail: "19–28 June 2024 at Bhubaneswar." },
 ];
 
 const trainingPillars = [
   { icon: Compass, title: "Drill & Parade", desc: "Weekly parade practice on the school ground." },
-  { icon: Target, title: "Weapon Training", desc: "Familiarisation with .22 rifle under supervised conditions." },
-  { icon: MapPin, title: "Map Reading", desc: "Direction-finding, contour reading, field signals." },
-  { icon: Mountain, title: "Adventure Activities", desc: "Trekking, obstacle course and rock-climbing." },
-  { icon: HeartHandshake, title: "Social Service", desc: "Swachh Bharat drives, plantation, awareness campaigns." },
-  { icon: BookOpen, title: "Institutional Training", desc: "Theory on NCC organisation and leadership." },
+  {
+    icon: Target,
+    title: "Weapon Training",
+    desc: "Familiarisation with .22 rifle under supervised conditions.",
+  },
+  {
+    icon: MapPin,
+    title: "Map Reading",
+    desc: "Direction-finding, contour reading, field signals.",
+  },
+  {
+    icon: Mountain,
+    title: "Adventure Activities",
+    desc: "Trekking, obstacle course and rock-climbing.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Social Service",
+    desc: "Swachh Bharat drives, plantation, awareness campaigns.",
+  },
+  {
+    icon: BookOpen,
+    title: "Institutional Training",
+    desc: "Theory on NCC organisation and leadership.",
+  },
 ];
 
 const stats = [
@@ -51,8 +100,8 @@ function NCCPage() {
           <h1 className="font-display text-3xl md:text-5xl font-bold mt-4">एकता और अनुशासन</h1>
           <p className="text-white/80 text-lg mt-2">Unity & Discipline</p>
           <p className="mt-4 text-white/70 max-w-2xl">
-            The cadet wing of Hingula Vidya Pitha. Affiliated to 4(O) CTC NCC, Cuttack
-            since 2012 — training young citizens in discipline, service and leadership.
+            The cadet wing of Hingula Vidya Pitha. Affiliated to 4(O) CTC NCC, Cuttack since 2012 —
+            training young citizens in discipline, service and leadership.
           </p>
         </div>
       </div>
@@ -84,13 +133,19 @@ function NCCPage() {
             <Shield className="h-8 w-8 text-white" />
           </div>
           <div>
-            <div className="text-xs uppercase tracking-wider text-muted-foreground">Associate NCC Officer</div>
+            <div className="text-xs uppercase tracking-wider text-muted-foreground">
+              Associate NCC Officer
+            </div>
             <h2 className="font-display text-2xl font-bold">F/O Ranjan Kumar Mishra</h2>
             <div className="text-sm text-muted-foreground">TGT Sanskrit & Odia · NCC ANO</div>
             <p className="text-sm text-muted-foreground mt-2 max-w-2xl">
-              Leading the cadet wing with focus on discipline, physical fitness, and the values of service before self.
+              Leading the cadet wing with focus on discipline, physical fitness, and the values of
+              service before self.
             </p>
-            <a href="tel:9777386536" className="inline-block mt-3 text-sm text-primary hover:underline">
+            <a
+              href="tel:9777386536"
+              className="inline-block mt-3 text-sm text-primary hover:underline"
+            >
               Contact: 9777386536
             </a>
           </div>
@@ -148,7 +203,10 @@ function NCCPage() {
       <div>
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-display text-2xl font-bold">Cadet Life Gallery</h2>
-          <a href="/gallery" className="text-sm text-primary hover:underline inline-flex items-center gap-1">
+          <a
+            href="/gallery"
+            className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+          >
             View Full Gallery <ArrowRight className="h-3 w-3" />
           </a>
         </div>

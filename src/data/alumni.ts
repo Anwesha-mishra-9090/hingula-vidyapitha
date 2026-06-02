@@ -9,21 +9,79 @@ export type AlumniRecord = {
 };
 
 const FIRST_M = [
-  "Pradeep", "Rajesh", "Sushanta", "Manoj", "Bijay", "Tapas", "Subhakanta", "Dillip",
-  "Sanjay", "Niranjan", "Rabindra", "Sambit", "Asish", "Ranjit", "Soumya", "Debasish",
-  "Bibhuti", "Jagannath", "Pratap", "Bhagaban", "Saroj", "Trilochan", "Sushant",
-  "Akshaya", "Narayan", "Hemanta", "Lalit", "Sibani", "Prasanna", "Biswajit",
+  "Pradeep",
+  "Rajesh",
+  "Sushanta",
+  "Manoj",
+  "Bijay",
+  "Tapas",
+  "Subhakanta",
+  "Dillip",
+  "Sanjay",
+  "Niranjan",
+  "Rabindra",
+  "Sambit",
+  "Asish",
+  "Ranjit",
+  "Soumya",
+  "Debasish",
+  "Bibhuti",
+  "Jagannath",
+  "Pratap",
+  "Bhagaban",
+  "Saroj",
+  "Trilochan",
+  "Sushant",
+  "Akshaya",
+  "Narayan",
+  "Hemanta",
+  "Lalit",
+  "Sibani",
+  "Prasanna",
+  "Biswajit",
 ];
 
 const FIRST_F = [
-  "Sasmita", "Anjali", "Lipsa", "Itishree", "Pravati", "Subhashree", "Rashmita",
-  "Smruti", "Annapurna", "Sumitra", "Aruna", "Bandita", "Jayanti", "Lopamudra",
-  "Madhusmita", "Nirupama", "Pratima", "Rajalaxmi", "Saudamini", "Sunita",
+  "Sasmita",
+  "Anjali",
+  "Lipsa",
+  "Itishree",
+  "Pravati",
+  "Subhashree",
+  "Rashmita",
+  "Smruti",
+  "Annapurna",
+  "Sumitra",
+  "Aruna",
+  "Bandita",
+  "Jayanti",
+  "Lopamudra",
+  "Madhusmita",
+  "Nirupama",
+  "Pratima",
+  "Rajalaxmi",
+  "Saudamini",
+  "Sunita",
 ];
 
 const LAST = [
-  "Sahoo", "Behera", "Mohanty", "Pradhan", "Jena", "Pattnaik", "Das", "Mishra",
-  "Rout", "Khuntia", "Nayak", "Swain", "Parida", "Samal", "Dash", "Barik", "Mallick",
+  "Sahoo",
+  "Behera",
+  "Mohanty",
+  "Pradhan",
+  "Jena",
+  "Pattnaik",
+  "Das",
+  "Mishra",
+  "Rout",
+  "Khuntia",
+  "Nayak",
+  "Swain",
+  "Parida",
+  "Samal",
+  "Dash",
+  "Barik",
+  "Mallick",
 ];
 
 const PROFESSIONS = [
@@ -54,19 +112,97 @@ const PROFESSIONS = [
 
 // Curated real alumni
 export const ALUMNI_CURATED: AlumniRecord[] = [
-  { name: "Dr. Pravati Mohanty", batch: 1993, profession: "Principal Scientist", workplace: "ICAR", location: "New Delhi" },
-  { name: "Sri Bhagaban Sahoo", batch: 1994, profession: "Retired Headmaster", workplace: "Govt. High School", location: "Jajpur" },
-  { name: "Dr. Rabindra Nath Sahoo", batch: 1996, profession: "Senior Medical Officer", workplace: "SCB Medical College", location: "Cuttack" },
-  { name: "Col. Niranjan Sahoo", batch: 1998, profession: "Army Officer", workplace: "Indian Army", location: "Jammu" },
-  { name: "Smt. Sasmita Behera", batch: 1999, profession: "Assistant Professor", workplace: "Ravenshaw University", location: "Cuttack" },
-  { name: "Sri Pradeep Kumar Mohanty", batch: 2001, profession: "Assistant Engineer", workplace: "Govt. of Odisha", location: "Bhubaneswar" },
-  { name: "Sri Subhakanta Sahoo", batch: 2003, profession: "Progressive Farmer", workplace: "Multi-crop farm", location: "Bhotaka" },
-  { name: "Sri Dillip Kumar Das", batch: 2004, profession: "Branch Manager", workplace: "SBI", location: "Talcher" },
-  { name: "Smt. Itishree Jena", batch: 2007, profession: "Social Entrepreneur", workplace: "EduRoots Foundation", location: "Cuttack" },
-  { name: "Sri Tapas Ranjan Mohanty", batch: 2010, profession: "Junior Commissioned Officer", workplace: "Indian Army", location: "Leh" },
-  { name: "Sri Bijay Kumar Behera", batch: 2012, profession: "Sub-Inspector", workplace: "Odisha Police", location: "Angul" },
-  { name: "Sri Manoj Kumar Sahoo", batch: 2014, profession: "Software Engineer", workplace: "TCS", location: "Bengaluru" },
-  { name: "Smt. Lipsa Pattnaik", batch: 2017, profession: "Civil Service Aspirant", workplace: "Preparing", location: "Bhubaneswar" },
+  {
+    name: "Dr. Pravati Mohanty",
+    batch: 1993,
+    profession: "Principal Scientist",
+    workplace: "ICAR",
+    location: "New Delhi",
+  },
+  {
+    name: "Sri Bhagaban Sahoo",
+    batch: 1994,
+    profession: "Retired Headmaster",
+    workplace: "Govt. High School",
+    location: "Jajpur",
+  },
+  {
+    name: "Dr. Rabindra Nath Sahoo",
+    batch: 1996,
+    profession: "Senior Medical Officer",
+    workplace: "SCB Medical College",
+    location: "Cuttack",
+  },
+  {
+    name: "Col. Niranjan Sahoo",
+    batch: 1998,
+    profession: "Army Officer",
+    workplace: "Indian Army",
+    location: "Jammu",
+  },
+  {
+    name: "Smt. Sasmita Behera",
+    batch: 1999,
+    profession: "Assistant Professor",
+    workplace: "Ravenshaw University",
+    location: "Cuttack",
+  },
+  {
+    name: "Sri Pradeep Kumar Mohanty",
+    batch: 2001,
+    profession: "Assistant Engineer",
+    workplace: "Govt. of Odisha",
+    location: "Bhubaneswar",
+  },
+  {
+    name: "Sri Subhakanta Sahoo",
+    batch: 2003,
+    profession: "Progressive Farmer",
+    workplace: "Multi-crop farm",
+    location: "Bhotaka",
+  },
+  {
+    name: "Sri Dillip Kumar Das",
+    batch: 2004,
+    profession: "Branch Manager",
+    workplace: "SBI",
+    location: "Talcher",
+  },
+  {
+    name: "Smt. Itishree Jena",
+    batch: 2007,
+    profession: "Social Entrepreneur",
+    workplace: "EduRoots Foundation",
+    location: "Cuttack",
+  },
+  {
+    name: "Sri Tapas Ranjan Mohanty",
+    batch: 2010,
+    profession: "Junior Commissioned Officer",
+    workplace: "Indian Army",
+    location: "Leh",
+  },
+  {
+    name: "Sri Bijay Kumar Behera",
+    batch: 2012,
+    profession: "Sub-Inspector",
+    workplace: "Odisha Police",
+    location: "Angul",
+  },
+  {
+    name: "Sri Manoj Kumar Sahoo",
+    batch: 2014,
+    profession: "Software Engineer",
+    workplace: "TCS",
+    location: "Bengaluru",
+  },
+  {
+    name: "Smt. Lipsa Pattnaik",
+    batch: 2017,
+    profession: "Civil Service Aspirant",
+    workplace: "Preparing",
+    location: "Bhubaneswar",
+  },
 ];
 
 // Generate realistic alumni data
@@ -111,6 +247,6 @@ export const ALUMNI_ALL: AlumniRecord[] = [...ALUMNI_CURATED, ...GENERATED].sort
   (a, b) => b.batch - a.batch || a.name.localeCompare(b.name)
 );
 
-export const BATCH_YEARS: number[] = Array.from(
-  new Set(ALUMNI_ALL.map(a => a.batch))
-).sort((a, b) => b - a);
+export const BATCH_YEARS: number[] = Array.from(new Set(ALUMNI_ALL.map((a) => a.batch))).sort(
+  (a, b) => b - a
+);

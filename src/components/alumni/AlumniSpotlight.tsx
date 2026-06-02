@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { MapPin, Briefcase, Award } from 'lucide-react';
-import { ALUMNI_CURATED } from '@/data/alumni';
+import { motion } from "framer-motion";
+import { MapPin, Briefcase, Award } from "lucide-react";
+import { ALUMNI_CURATED } from "@/data/alumni";
 
 export function AlumniSpotlight() {
   const featured = ALUMNI_CURATED.slice(0, 6);
@@ -13,7 +13,7 @@ export function AlumniSpotlight() {
         <h3 className="font-display text-xl font-bold">Featured Alumni</h3>
         <span className="text-xs text-muted-foreground">Inspiring stories from our graduates</span>
       </div>
-      
+
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {featured.map((alumni, i) => (
           <motion.div
@@ -25,7 +25,11 @@ export function AlumniSpotlight() {
           >
             <div className="flex items-start gap-3">
               <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/20 font-display text-lg font-bold text-primary">
-                {alumni.name.split(' ').slice(-2).map(n => n[0]).join('')}
+                {alumni.name
+                  .split(" ")
+                  .slice(-2)
+                  .map((n) => n[0])
+                  .join("")}
               </div>
               <div className="min-w-0 flex-1">
                 <div className="font-semibold">{alumni.name}</div>

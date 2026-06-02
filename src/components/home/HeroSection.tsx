@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
-import Link from 'next/link';
-import { SCHOOL } from '@/data/school';
+import { motion } from "framer-motion";
+import { ArrowRight, Play } from "lucide-react";
+import Link from "next/link";
+import { SCHOOL } from "@/data/school";
 
 export function HeroSection() {
   return (
@@ -19,19 +19,17 @@ export function HeroSection() {
             <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
             Government Aided High School
           </span>
-          
+
           <h1 className="mt-4 font-display text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
             {SCHOOL.name}
           </h1>
-          
-          <p className="mt-4 text-white/80 text-lg">
-            {SCHOOL.motto}
-          </p>
-          
+
+          <p className="mt-4 text-white/80 text-lg">{SCHOOL.motto}</p>
+
           <p className="mt-2 text-white/70">
             Established {SCHOOL.established} • {SCHOOL.affiliation}
           </p>
-          
+
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/about"
@@ -50,7 +48,7 @@ export function HeroSection() {
           </div>
         </motion.div>
       </div>
-      
+
       {/* Decorative elements */}
       <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
       <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />

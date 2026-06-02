@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 interface LazyImageProps {
   src: string;
@@ -10,7 +10,7 @@ interface LazyImageProps {
   placeholderColor?: string;
 }
 
-export function LazyImage({ src, alt, className, placeholderColor = '#f0f0f0' }: LazyImageProps) {
+export function LazyImage({ src, alt, className, placeholderColor = "#f0f0f0" }: LazyImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -25,7 +25,7 @@ export function LazyImage({ src, alt, className, placeholderColor = '#f0f0f0' }:
           }
         });
       },
-      { threshold: 0.1, rootMargin: '100px' }
+      { threshold: 0.1, rootMargin: "100px" }
     );
 
     if (imgRef.current) {
@@ -43,16 +43,17 @@ export function LazyImage({ src, alt, className, placeholderColor = '#f0f0f0' }:
             ref={imgRef}
             src={src}
             alt={alt}
-            className={`h-full w-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className={`h-full w-full object-cover transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
             onLoad={() => setIsLoaded(true)}
           />
           {!isLoaded && (
             <motion.div
               className="absolute inset-0"
-              animate={{ x: ['-100%', '100%'] }}
+              animate={{ x: ["-100%", "100%"] }}
               transition={{ duration: 1, repeat: Infinity }}
               style={{
-                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+                background:
+                  "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
               }}
             />
           )}

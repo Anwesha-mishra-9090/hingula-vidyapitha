@@ -1,8 +1,8 @@
-export * from './faculty';
-export * from './alumni';
-export * from './gallery';
-export * from './notices';
-export * from './facilities';
+export * from "./faculty";
+export * from "./alumni";
+export * from "./gallery";
+export * from "./notices";
+export * from "./facilities";
 
 // Common types used across the application
 export interface BaseEntity {
@@ -22,7 +22,7 @@ export interface PaginationParams {
   page: number;
   limit: number;
   sortBy?: string;
-  sortOrder?: 'asc' | 'desc';
+  sortOrder?: "asc" | "desc";
 }
 
 export interface PaginatedResponse<T> {
@@ -33,14 +33,14 @@ export interface PaginatedResponse<T> {
   totalPages: number;
 }
 
-export type Status = 'active' | 'inactive' | 'pending' | 'archived';
-export type Priority = 'high' | 'medium' | 'low';
-export type Category = 
-  | 'Academics' 
-  | 'Administration' 
-  | 'NCC' 
-  | 'Sports' 
-  | 'Events' 
-  | 'Examination'
-  | 'Cultural'
-  | 'Environment';
+export type Status = "active" | "inactive" | "pending" | "archived";
+export type Priority = "high" | "medium" | "low";
+export type Category =
+  | "Academics"
+  | "Administration"
+  | "NCC"
+  | "Sports"
+  | "Events"
+  | "Examination"
+  | "Cultural"
+  | "Environment";

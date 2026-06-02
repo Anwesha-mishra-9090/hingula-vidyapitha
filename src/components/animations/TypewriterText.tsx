@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 interface TypewriterTextProps {
   texts: string[];
@@ -11,7 +11,7 @@ interface TypewriterTextProps {
 
 export function TypewriterText({ texts, delay = 2000, className }: TypewriterTextProps) {
   const [index, setIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -20,8 +20,8 @@ export function TypewriterText({ texts, delay = 2000, className }: TypewriterTex
 
     if (isDeleting) {
       timeout = setTimeout(() => {
-        setDisplayText(prev => prev.slice(0, -1));
-        if (displayText === '') {
+        setDisplayText((prev) => prev.slice(0, -1));
+        if (displayText === "") {
           setIsDeleting(false);
           setIndex((prev) => (prev + 1) % texts.length);
         }

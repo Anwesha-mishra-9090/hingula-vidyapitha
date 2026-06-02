@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import { useRef, ReactNode } from 'react';
+import { motion, useInView } from "framer-motion";
+import { useRef, ReactNode } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -11,7 +11,7 @@ interface ScrollRevealProps {
 
 export function ScrollReveal({ children, delay = 0, className }: ScrollRevealProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <motion.div

@@ -1,33 +1,34 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { AlumniCard } from './AlumniCard';
-import { AlumniFilters } from './AlumniFilters';
-import { AlumniTimeline } from './AlumniTimeline';
-import { ALUMNI_ALL, BATCH_YEARS } from '@/data/alumni';
-import type { AlumniRecord } from '@/data/alumni';
+import { useState, useMemo } from "react";
+import { motion } from "framer-motion";
+import { AlumniCard } from "./AlumniCard";
+import { AlumniFilters } from "./AlumniFilters";
+import { AlumniTimeline } from "./AlumniTimeline";
+import { ALUMNI_ALL, BATCH_YEARS } from "@/data/alumni";
+import type { AlumniRecord } from "@/data/alumni";
 
 export function AlumniGrid() {
-  const [search, setSearch] = useState('');
-  const [batch, setBatch] = useState<number | 'all'>('all');
-  const [profession, setProfession] = useState<string>('all');
+  const [search, setSearch] = useState("");
+  const [batch, setBatch] = useState<number | "all">("all");
+  const [profession, setProfession] = useState<string>("all");
 
   const professions = useMemo(() => {
-    const profs = new Set(ALUMNI_ALL.map(a => a.profession));
-    return ['all', ...Array.from(profs).sort()];
+    const profs = new Set(ALUMNI_ALL.map((a) => a.profession));
+    return ["all", ...Array.from(profs).sort()];
   }, []);
 
   const filtered = useMemo(() => {
     let result = ALUMNI_ALL;
-    if (batch !== 'all') result = result.filter(a => a.batch === batch);
-    if (profession !== 'all') result = result.filter(a => a.profession === profession);
+    if (batch !== "all") result = result.filter((a) => a.batch === batch);
+    if (profession !== "all") result = result.filter((a) => a.profession === profession);
     if (search.trim()) {
       const term = search.toLowerCase();
-      result = result.filter(a => 
-        a.name.toLowerCase().includes(term) || 
-        a.profession.toLowerCase().includes(term) ||
-        a.workplace?.toLowerCase().includes(term)
+      result = result.filter(
+        (a) =>
+          a.name.toLowerCase().includes(term) ||
+          a.profession.toLowerCase().includes(term) ||
+          a.workplace?.toLowerCase().includes(term)
       );
     }
     return result;
@@ -35,7 +36,7 @@ export function AlumniGrid() {
 
   const byBatch = useMemo(() => {
     const map = new Map<number, AlumniRecord[]>();
-    filtered.forEach(a => {
+    filtered.forEach((a) => {
       if (!map.has(a.batch)) map.set(a.batch, []);
       map.get(a.batch)!.push(a);
     });

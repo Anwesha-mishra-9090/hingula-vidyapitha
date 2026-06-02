@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Download } from 'lucide-react';
-import type { NoticeRecord } from '@/data/notices';
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Download } from "lucide-react";
+import type { NoticeRecord } from "@/data/notices";
 
 interface NoticePreviewModalProps {
   notice: NoticeRecord | null;
@@ -29,21 +29,26 @@ export function NoticePreviewModal({ notice, onClose, onDownload }: NoticePrevie
           className="relative max-h-[85vh] w-full max-w-2xl overflow-auto rounded-xl bg-card shadow-xl"
           onClick={(e) => e.stopPropagation()}
         >
-          <button onClick={onClose} className="absolute right-4 top-4 rounded-lg p-1 hover:bg-accent">
+          <button
+            onClick={onClose}
+            className="absolute right-4 top-4 rounded-lg p-1 hover:bg-accent"
+          >
             <X className="h-5 w-5" />
           </button>
-          
+
           <div className="p-6">
             <div className="mb-4 flex items-center gap-2 text-xs">
               <span className="font-semibold uppercase text-primary">{notice.category}</span>
               <span>•</span>
               <span className="text-muted-foreground">{notice.referenceNo}</span>
               <span>•</span>
-              <span className="text-muted-foreground">{new Date(notice.date).toLocaleDateString()}</span>
+              <span className="text-muted-foreground">
+                {new Date(notice.date).toLocaleDateString()}
+              </span>
             </div>
-            
+
             <h3 className="font-display text-2xl font-bold">{notice.attachment.title}</h3>
-            
+
             <div className="mt-4 space-y-2 border-t border-border pt-4">
               {notice.attachment.meta.map((m) => (
                 <div key={m.label} className="flex text-sm">
@@ -52,11 +57,11 @@ export function NoticePreviewModal({ notice, onClose, onDownload }: NoticePrevie
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-6 whitespace-pre-line text-sm leading-relaxed">
               {notice.attachment.body}
             </div>
-            
+
             <div className="mt-6 flex justify-end">
               <button
                 onClick={onDownload}

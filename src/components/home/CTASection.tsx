@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { ArrowRight, Mail, Phone } from 'lucide-react';
+import Link from "next/link";
+import { ArrowRight, Mail, Phone } from "lucide-react";
 
 export function CTASection() {
   return (

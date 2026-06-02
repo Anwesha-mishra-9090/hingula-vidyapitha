@@ -38,21 +38,21 @@ export interface Facility {
   departments: string[];
 }
 
-export type FacilityCategory = 
-  | 'Academic'
-  | 'Sports'
-  | 'Cultural'
-  | 'Administrative'
-  | 'Ecological'
-  | 'Defence';
+export type FacilityCategory =
+  | "Academic"
+  | "Sports"
+  | "Cultural"
+  | "Administrative"
+  | "Ecological"
+  | "Defence";
 
 export const facilityCategories: FacilityCategory[] = [
-  'Academic',
-  'Sports',
-  'Cultural',
-  'Administrative',
-  'Ecological',
-  'Defence',
+  "Academic",
+  "Sports",
+  "Cultural",
+  "Administrative",
+  "Ecological",
+  "Defence",
 ];
 
 export interface FacilityCategoryInfo {

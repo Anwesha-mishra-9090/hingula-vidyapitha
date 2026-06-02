@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import * as Icons from 'lucide-react';
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import * as Icons from "lucide-react";
 
 interface FacilityCardProps {
   slug: string;
@@ -16,7 +16,16 @@ interface FacilityCardProps {
   stats: { label: string; value: number; suffix?: string }[];
 }
 
-export function FacilityCard({ slug, name, category, tagline, hero, icon, accent, stats }: FacilityCardProps) {
+export function FacilityCard({
+  slug,
+  name,
+  category,
+  tagline,
+  hero,
+  icon,
+  accent,
+  stats,
+}: FacilityCardProps) {
   const Icon = (Icons as any)[icon] || Icons.Building2;
 
   return (
@@ -42,7 +51,7 @@ export function FacilityCard({ slug, name, category, tagline, hero, icon, accent
             <h3 className="mt-1 font-display text-lg font-bold text-white">{name}</h3>
           </div>
         </div>
-        
+
         <div className="p-4">
           <p className="line-clamp-2 text-sm text-muted-foreground">{tagline}</p>
           <div className="mt-3 flex items-center justify-between">
@@ -50,7 +59,8 @@ export function FacilityCard({ slug, name, category, tagline, hero, icon, accent
               {stats.slice(0, 2).map((stat) => (
                 <div key={stat.label}>
                   <div className="font-display text-lg font-bold text-primary">
-                    {stat.value.toLocaleString()}{stat.suffix || ''}
+                    {stat.value.toLocaleString()}
+                    {stat.suffix || ""}
                   </div>
                   <div className="text-[10px] text-muted-foreground">{stat.label}</div>
                 </div>

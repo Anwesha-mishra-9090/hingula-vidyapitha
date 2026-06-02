@@ -21,21 +21,21 @@ export interface AlumniBatch {
   alumni: AlumniRecord[];
 }
 
-export type AlumniProfession = 
-  | 'Teacher'
-  | 'Engineer'
-  | 'Doctor'
-  | 'Police Officer'
-  | 'Army Soldier'
-  | 'Government Officer'
-  | 'Entrepreneur'
-  | 'Farmer'
-  | 'Scientist'
-  | 'Software Engineer'
-  | 'Banker'
-  | 'Lawyer'
-  | 'Artist'
-  | 'Other';
+export type AlumniProfession =
+  | "Teacher"
+  | "Engineer"
+  | "Doctor"
+  | "Police Officer"
+  | "Army Soldier"
+  | "Government Officer"
+  | "Entrepreneur"
+  | "Farmer"
+  | "Scientist"
+  | "Software Engineer"
+  | "Banker"
+  | "Lawyer"
+  | "Artist"
+  | "Other";
 
 export interface AlumniStats {
   totalAlumni: number;

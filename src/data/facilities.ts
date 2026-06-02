@@ -30,7 +30,8 @@ export const FACILITIES: Facility[] = [
     hero: u("1521587760476-6c12a4b040da"),
     icon: "BookOpen",
     accent: "var(--saffron)",
-    intro: "The Central Library is the academic heart of the institution — a curated, government-supported reading sanctuary.",
+    intro:
+      "The Central Library is the academic heart of the institution — a curated, government-supported reading sanctuary.",
     longDescription: [
       "Established in 1992, the Central Library has grown from a single wooden almirah into a multi-section reading hall.",
       "Beyond books, the library is a habit. Students rotate through structured reading periods scheduled into the weekly timetable.",
@@ -61,13 +62,18 @@ export const FACILITIES: Facility[] = [
     hero: u("1532094349884-543bc11b234d"),
     icon: "FlaskConical",
     accent: "oklch(0.6 0.16 200)",
-    intro: "A combined physics-chemistry-biology laboratory equipped to deliver the full Class IX-X practical syllabus.",
+    intro:
+      "A combined physics-chemistry-biology laboratory equipped to deliver the full Class IX-X practical syllabus.",
     longDescription: [
       "The Science Laboratory is purpose-built around the Board of Secondary Education's practical examination calendar.",
       "The lab follows a safety-first protocol with aprons, goggles, and an eye-wash station.",
     ],
     highlights: [
-      { icon: "TestTube2", title: "100% syllabus", body: "Every prescribed experiment is performed." },
+      {
+        icon: "TestTube2",
+        title: "100% syllabus",
+        body: "Every prescribed experiment is performed.",
+      },
       { icon: "Microscope", title: "8 microscopes", body: "Used for biology slide observation." },
     ],
     stats: [
@@ -92,7 +98,8 @@ export const FACILITIES: Facility[] = [
     hero: u("1517649763962-0c623066013b"),
     icon: "Trophy",
     accent: "oklch(0.6 0.16 30)",
-    intro: "A multi-use open ground hosting annual sports meet, daily PT, kabaddi, football, and athletics.",
+    intro:
+      "A multi-use open ground hosting annual sports meet, daily PT, kabaddi, football, and athletics.",
     longDescription: [
       "Spread over the rear half of the campus, configured for athletics with marked lanes for sprints.",
       "Every academic year opens with the annual sports meet — a two-day festival of track events.",
@@ -148,4 +155,12 @@ export const FACILITIES: Facility[] = [
   },
 ];
 
-export const FACILITY_CATEGORIES = ["All", "Academic", "Sports", "Cultural", "Administrative", "Ecological", "Defence"] as const;
+export const FACILITY_CATEGORIES = [
+  "All",
+  "Academic",
+  "Sports",
+  "Cultural",
+  "Administrative",
+  "Ecological",
+  "Defence",
+] as const;

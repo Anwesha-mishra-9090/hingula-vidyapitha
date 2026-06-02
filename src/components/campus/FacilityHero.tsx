@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface FacilityHeroProps {
   name: string;
@@ -24,7 +24,7 @@ export function FacilityHero({ name, category, tagline, hero, accent }: Facility
         className="h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-      
+
       <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
         <Link
           href="/campus-life"
@@ -36,7 +36,7 @@ export function FacilityHero({ name, category, tagline, hero, accent }: Facility
         <div className="flex items-center gap-2">
           <span
             className="rounded-full px-2 py-0.5 text-xs font-semibold uppercase tracking-wider"
-            style={{ backgroundColor: accent, color: 'white' }}
+            style={{ backgroundColor: accent, color: "white" }}
           >
             {category}
           </span>

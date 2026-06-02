@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { motion, HTMLMotionProps } from 'framer-motion';
-import { ReactNode } from 'react';
+import { motion, HTMLMotionProps } from "framer-motion";
+import { ReactNode } from "react";
 
-interface FadeInProps extends HTMLMotionProps<'div'> {
+interface FadeInProps extends HTMLMotionProps<"div"> {
   children: ReactNode;
   delay?: number;
 }

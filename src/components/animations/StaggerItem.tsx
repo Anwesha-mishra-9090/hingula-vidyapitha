@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { motion, HTMLMotionProps } from 'framer-motion';
-import { ReactNode } from 'react';
+import { motion, HTMLMotionProps } from "framer-motion";
+import { ReactNode } from "react";
 
-interface StaggerItemProps extends HTMLMotionProps<'div'> {
+interface StaggerItemProps extends HTMLMotionProps<"div"> {
   children: ReactNode;
 }
 

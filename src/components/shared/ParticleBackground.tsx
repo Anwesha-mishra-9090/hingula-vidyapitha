@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface Particle {
   x: number;
@@ -19,7 +19,7 @@ export function ParticleBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const resize = () => {
@@ -45,30 +45,30 @@ export function ParticleBackground() {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       particlesRef.current.forEach((particle) => {
         particle.x += particle.speedX;
         particle.y += particle.speedY;
-        
+
         if (particle.x < 0) particle.x = canvas.width;
         if (particle.x > canvas.width) particle.x = 0;
         if (particle.y < 0) particle.y = canvas.height;
         if (particle.y > canvas.height) particle.y = 0;
-        
+
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(114, 47, 55, ${particle.opacity})`;
         ctx.fill();
       });
-      
+
       requestAnimationFrame(animate);
     };
 
-    window.addEventListener('resize', resize);
+    window.addEventListener("resize", resize);
     resize();
     animate();
 
-    return () => window.removeEventListener('resize', resize);
+    return () => window.removeEventListener("resize", resize);
   }, []);
 
   return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none" />;

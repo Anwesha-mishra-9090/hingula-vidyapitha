@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Search } from 'lucide-react';
+import { Search } from "lucide-react";
 
 interface FacultyFiltersProps {
   search: string;
@@ -29,7 +29,7 @@ export function FacultyFilters({
           className="h-10 w-full rounded-lg border border-border bg-background pl-9 pr-4 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
         />
       </div>
-      
+
       <div className="flex gap-2 overflow-x-auto">
         {departments.map((dept) => (
           <button
@@ -37,11 +37,11 @@ export function FacultyFilters({
             onClick={() => onDepartmentChange(dept)}
             className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition ${
               department === dept
-                ? 'bg-primary text-primary-foreground'
-                : 'border border-border bg-card hover:bg-accent'
+                ? "bg-primary text-primary-foreground"
+                : "border border-border bg-card hover:bg-accent"
             }`}
           >
-            {dept === 'all' ? 'All Departments' : dept}
+            {dept === "all" ? "All Departments" : dept}
           </button>
         ))}
       </div>

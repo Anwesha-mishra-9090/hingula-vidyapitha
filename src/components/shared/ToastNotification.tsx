@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, XCircle, Info, X } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { CheckCircle, XCircle, Info, X } from "lucide-react";
 
-export type ToastType = 'success' | 'error' | 'info';
+export type ToastType = "success" | "error" | "info";
 
 interface ToastNotificationProps {
   message: string;
@@ -13,7 +13,12 @@ interface ToastNotificationProps {
   onClose: () => void;
 }
 
-export function ToastNotification({ message, type = 'info', duration = 3000, onClose }: ToastNotificationProps) {
+export function ToastNotification({
+  message,
+  type = "info",
+  duration = 3000,
+  onClose,
+}: ToastNotificationProps) {
   useEffect(() => {
     const timer = setTimeout(onClose, duration);
     return () => clearTimeout(timer);
@@ -26,9 +31,9 @@ export function ToastNotification({ message, type = 'info', duration = 3000, onC
   };
 
   const colors = {
-    success: 'border-green-500/20 bg-green-500/10',
-    error: 'border-red-500/20 bg-red-500/10',
-    info: 'border-blue-500/20 bg-blue-500/10',
+    success: "border-green-500/20 bg-green-500/10",
+    error: "border-red-500/20 bg-red-500/10",
+    info: "border-blue-500/20 bg-blue-500/10",
   };
 
   return (
@@ -50,7 +55,7 @@ export function ToastNotification({ message, type = 'info', duration = 3000, onC
 export function ToastContainer() {
   const [toasts, setToasts] = useState<{ id: string; message: string; type: ToastType }[]>([]);
 
-  const addToast = (message: string, type: ToastType = 'info') => {
+  const addToast = (message: string, type: ToastType = "info") => {
     const id = Math.random().toString(36);
     setToasts((prev) => [...prev, { id, message, type }]);
   };
@@ -73,9 +78,9 @@ export function ToastContainer() {
           ))}
         </AnimatePresence>
       </div>
-      {typeof window !== 'undefined' && (window as any).__toast === undefined && (
-        (window as any).__toast = addToast
-      )}
+      {typeof window !== "undefined" &&
+        (window as any).__toast === undefined &&
+        ((window as any).__toast = addToast)}
     </>
   );
 }

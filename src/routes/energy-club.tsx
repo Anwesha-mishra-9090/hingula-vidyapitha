@@ -1,6 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Zap, Sun, Wind, Lightbulb, Atom, Cpu, BatteryCharging, Gauge, ArrowRight, Camera } from "lucide-react";
+import {
+  Zap,
+  Sun,
+  Wind,
+  Lightbulb,
+  Atom,
+  Cpu,
+  BatteryCharging,
+  Gauge,
+  ArrowRight,
+  Camera,
+} from "lucide-react";
 import { ENERGY_PHOTOS } from "@/data/media";
 
 export const Route = createFileRoute("/energy-club")({
@@ -10,19 +21,65 @@ export const Route = createFileRoute("/energy-club")({
 const heroImage = ENERGY_PHOTOS[0] || "/gallery/energy/energy-01.jpg";
 
 const projects = [
-  { icon: Sun, title: "Solar Literacy Programme", desc: "Hands-on solar cookers, demonstration of photovoltaic panels and a yearly solar-day science fair.", tag: "Solar" },
-  { icon: Wind, title: "Renewable Survey", desc: "Mapping renewable resources of coastal Odisha — a student research module.", tag: "Research" },
-  { icon: BatteryCharging, title: "Energy Audit", desc: "Annual classroom-by-classroom audit of lighting, fans and lab equipment.", tag: "Audit" },
-  { icon: Lightbulb, title: "LED Retrofit Drive", desc: "Replacement of incandescent bulbs with LED equivalents across the campus.", tag: "Conservation" },
-  { icon: Atom, title: "Innovation Models", desc: "Student-built prototypes — solar street lights, wind turbine demonstrators.", tag: "Innovation" },
-  { icon: Cpu, title: "Digital Sustainability", desc: "Computer lab sessions on energy-efficient computing and e-waste awareness.", tag: "Digital" },
+  {
+    icon: Sun,
+    title: "Solar Literacy Programme",
+    desc: "Hands-on solar cookers, demonstration of photovoltaic panels and a yearly solar-day science fair.",
+    tag: "Solar",
+  },
+  {
+    icon: Wind,
+    title: "Renewable Survey",
+    desc: "Mapping renewable resources of coastal Odisha — a student research module.",
+    tag: "Research",
+  },
+  {
+    icon: BatteryCharging,
+    title: "Energy Audit",
+    desc: "Annual classroom-by-classroom audit of lighting, fans and lab equipment.",
+    tag: "Audit",
+  },
+  {
+    icon: Lightbulb,
+    title: "LED Retrofit Drive",
+    desc: "Replacement of incandescent bulbs with LED equivalents across the campus.",
+    tag: "Conservation",
+  },
+  {
+    icon: Atom,
+    title: "Innovation Models",
+    desc: "Student-built prototypes — solar street lights, wind turbine demonstrators.",
+    tag: "Innovation",
+  },
+  {
+    icon: Cpu,
+    title: "Digital Sustainability",
+    desc: "Computer lab sessions on energy-efficient computing and e-waste awareness.",
+    tag: "Digital",
+  },
 ];
 
 const principles = [
-  { num: "01", title: "Conserve First", body: "Every watt saved is greener than every watt generated." },
-  { num: "02", title: "Learn by Building", body: "Every concept must end in a working student prototype." },
-  { num: "03", title: "Measure Honestly", body: "We track real classroom data — units consumed, units saved." },
-  { num: "04", title: "Share Widely", body: "Every project is presented to the school and parents." },
+  {
+    num: "01",
+    title: "Conserve First",
+    body: "Every watt saved is greener than every watt generated.",
+  },
+  {
+    num: "02",
+    title: "Learn by Building",
+    body: "Every concept must end in a working student prototype.",
+  },
+  {
+    num: "03",
+    title: "Measure Honestly",
+    body: "We track real classroom data — units consumed, units saved.",
+  },
+  {
+    num: "04",
+    title: "Share Widely",
+    body: "Every project is presented to the school and parents.",
+  },
 ];
 
 const stats = [
@@ -47,14 +104,20 @@ function EnergyClubPage() {
           </div>
           <h1 className="font-display text-3xl md:text-5xl font-bold mt-4">Watts of Wisdom</h1>
           <p className="mt-4 text-white/80 max-w-2xl">
-            A scientific student ecosystem — committed to renewable energy literacy, conservation engineering, 
-            and the quiet revolution of measuring before consuming.
+            A scientific student ecosystem — committed to renewable energy literacy, conservation
+            engineering, and the quiet revolution of measuring before consuming.
           </p>
           <div className="flex flex-wrap gap-3 mt-6">
-            <Link to="/academics" className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-white text-blue-800 font-semibold hover:bg-white/90 transition">
+            <Link
+              to="/academics"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-white text-blue-800 font-semibold hover:bg-white/90 transition"
+            >
               Science Curriculum <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link to="/gallery" className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-white/20 text-white font-semibold hover:bg-white/30 transition">
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-white/20 text-white font-semibold hover:bg-white/30 transition"
+            >
               View Gallery
             </Link>
           </div>
@@ -88,7 +151,9 @@ function EnergyClubPage() {
             <Zap className="h-8 w-8 text-white" />
           </div>
           <div>
-            <div className="text-xs uppercase tracking-wider text-muted-foreground">Faculty In-charge</div>
+            <div className="text-xs uppercase tracking-wider text-muted-foreground">
+              Faculty In-charge
+            </div>
             <h3 className="font-display text-xl font-bold">Tushar Kanti Dutta</h3>
             <div className="text-sm text-muted-foreground">TGT Science · Mathematics</div>
             <p className="text-sm text-muted-foreground mt-2 max-w-2xl">
@@ -132,8 +197,13 @@ function EnergyClubPage() {
         <h2 className="font-display text-2xl font-bold mb-6">Operating Principles</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {principles.map((principle) => (
-            <div key={principle.num} className="rounded-xl border border-border bg-card p-4 relative overflow-hidden">
-              <div className="absolute -top-4 -right-4 text-6xl font-bold text-blue-500/10">{principle.num}</div>
+            <div
+              key={principle.num}
+              className="rounded-xl border border-border bg-card p-4 relative overflow-hidden"
+            >
+              <div className="absolute -top-4 -right-4 text-6xl font-bold text-blue-500/10">
+                {principle.num}
+              </div>
               <h3 className="font-semibold relative">{principle.title}</h3>
               <p className="text-sm text-muted-foreground mt-1 relative">{principle.body}</p>
             </div>
@@ -145,7 +215,10 @@ function EnergyClubPage() {
       <div>
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-display text-2xl font-bold">Inside the Lab — Energy in Motion</h2>
-          <Link to="/gallery" className="text-sm text-primary hover:underline inline-flex items-center gap-1">
+          <Link
+            to="/gallery"
+            className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+          >
             View All <ArrowRight className="h-3 w-3" />
           </Link>
         </div>
@@ -171,4 +244,5 @@ function EnergyClubPage() {
       </div>
     </div>
   );
-}export default EnergyClubPage;
+}
+export default EnergyClubPage;

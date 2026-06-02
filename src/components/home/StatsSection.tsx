@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { STATS } from '@/data/school';
-import { AnimatedCounter } from '@/components/animations/AnimatedCounter';
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { STATS } from "@/data/school";
+import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 
 export function StatsSection() {
   const ref = useRef(null);
@@ -20,7 +20,11 @@ export function StatsSection() {
           className="rounded-xl border border-border bg-card p-4 text-center"
         >
           <div className="font-display text-3xl font-bold text-primary">
-            {isInView ? <AnimatedCounter end={stat.value} suffix={stat.suffix || ''} /> : `0${stat.suffix || ''}`}
+            {isInView ? (
+              <AnimatedCounter end={stat.value} suffix={stat.suffix || ""} />
+            ) : (
+              `0${stat.suffix || ""}`
+            )}
           </div>
           <div className="mt-1 text-xs text-muted-foreground">{stat.label}</div>
         </motion.div>

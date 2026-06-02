@@ -24,15 +24,19 @@ export const SITE_CONSTANTS = {
     medium: ["Odia", "English"],
   },
   galleryCategories: [
-    "NCC", "NCC Field", "Ceremonial", "Cultural", "Campus",
-    "Academics", "Sports", "Events", "Eco", "Energy",
+    "NCC",
+    "NCC Field",
+    "Ceremonial",
+    "Cultural",
+    "Campus",
+    "Academics",
+    "Sports",
+    "Events",
+    "Eco",
+    "Energy",
   ],
-  noticeCategories: [
-    "Academics", "Administration", "NCC", "Sports", "Events", "Examination",
-  ],
-  facilityCategories: [
-    "Academic", "Sports", "Cultural", "Administrative", "Ecological", "Defence",
-  ],
+  noticeCategories: ["Academics", "Administration", "NCC", "Sports", "Events", "Examination"],
+  facilityCategories: ["Academic", "Sports", "Cultural", "Administrative", "Ecological", "Defence"],
 };
 
 export const ROUTES = {

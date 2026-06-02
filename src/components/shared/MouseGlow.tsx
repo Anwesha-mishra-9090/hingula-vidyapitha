@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export function MouseGlow() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -21,12 +21,12 @@ export function MouseGlow() {
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseover", handleMouseOver);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseover", handleMouseOver);
     };
   }, []);
 
@@ -38,11 +38,11 @@ export function MouseGlow() {
         y: mousePosition.y - 20,
         scale: isHovering ? 1.5 : 1,
       }}
-      transition={{ type: 'spring', stiffness: 500, damping: 28 }}
+      transition={{ type: "spring", stiffness: 500, damping: 28 }}
       style={{
         width: 40,
         height: 40,
-        background: 'radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%)',
+        background: "radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%)",
       }}
     />
   );

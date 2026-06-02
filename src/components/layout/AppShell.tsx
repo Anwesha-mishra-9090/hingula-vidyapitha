@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
-import { Link } from '@tanstack/react-router';
-import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useState, useEffect } from "react";
 
 interface AppShellProps {
   children: ReactNode;
@@ -13,13 +13,14 @@ export function AppShell({ children }: AppShellProps) {
 
   // Theme toggle
   useEffect(() => {
-    const saved = localStorage.getItem('theme');
-    const isDarkMode = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const saved = localStorage.getItem("theme");
+    const isDarkMode =
+      saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches);
     setIsDark(isDarkMode);
     if (isDarkMode) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
@@ -27,29 +28,29 @@ export function AppShell({ children }: AppShellProps) {
     const newDark = !isDark;
     setIsDark(newDark);
     if (newDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   };
 
   const navItems = [
-    { label: 'Dashboard', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Academics', href: '/academics' },
-    { label: 'Faculty', href: '/faculty' },
-    { label: 'Excellence', href: '/excellence' },
-    { label: 'Alumni', href: '/alumni' },
-    { label: 'NCC', href: '/ncc' },
-    { label: 'Eco Club', href: '/eco-club' },
-    { label: 'Energy Club', href: '/energy-club' },
-    { label: 'Campus Life', href: '/campus-life' },
-    { label: 'Gallery', href: '/gallery' },
-    { label: 'Notices', href: '/notices' },
-    { label: 'Achievements', href: '/achievements' },
-    { label: 'Contact', href: '/contact' },
+    { label: "Dashboard", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Academics", href: "/academics" },
+    { label: "Faculty", href: "/faculty" },
+    { label: "Excellence", href: "/excellence" },
+    { label: "Alumni", href: "/alumni" },
+    { label: "NCC", href: "/ncc" },
+    { label: "Eco Club", href: "/eco-club" },
+    { label: "Energy Club", href: "/energy-club" },
+    { label: "Campus Life", href: "/campus-life" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Notices", href: "/notices" },
+    { label: "Achievements", href: "/achievements" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -62,7 +63,9 @@ export function AppShell({ children }: AppShellProps) {
             <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
               <span className="text-white text-sm font-bold">HVP</span>
             </div>
-            <span className="font-display font-semibold text-lg hidden sm:inline">Hingula Vidya Pitha</span>
+            <span className="font-display font-semibold text-lg hidden sm:inline">
+              Hingula Vidya Pitha
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -72,12 +75,15 @@ export function AppShell({ children }: AppShellProps) {
                 key={item.href}
                 to={item.href}
                 className="text-sm text-muted-foreground hover:text-primary transition"
-                activeProps={{ className: 'text-primary font-semibold' }}
+                activeProps={{ className: "text-primary font-semibold" }}
               >
                 {item.label}
               </Link>
             ))}
-            <Link to="/notices" className="text-sm text-muted-foreground hover:text-primary transition">
+            <Link
+              to="/notices"
+              className="text-sm text-muted-foreground hover:text-primary transition"
+            >
               Notices
             </Link>
           </nav>
@@ -104,7 +110,10 @@ export function AppShell({ children }: AppShellProps) {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-sm md:hidden" onClick={() => setIsMenuOpen(false)}>
+        <div
+          className="fixed inset-0 z-40 bg-background/95 backdrop-blur-sm md:hidden"
+          onClick={() => setIsMenuOpen(false)}
+        >
           <nav className="container py-4 space-y-2" onClick={(e) => e.stopPropagation()}>
             {navItems.map((item) => (
               <Link
@@ -112,7 +121,7 @@ export function AppShell({ children }: AppShellProps) {
                 to={item.href}
                 onClick={() => setIsMenuOpen(false)}
                 className="block py-3 text-center text-muted-foreground hover:text-primary transition border-b border-border"
-                activeProps={{ className: 'text-primary font-semibold' }}
+                activeProps={{ className: "text-primary font-semibold" }}
               >
                 {item.label}
               </Link>
@@ -132,8 +141,8 @@ export function AppShell({ children }: AppShellProps) {
             <div>
               <h3 className="font-display text-lg font-bold mb-3">Hingula Vidya Pitha</h3>
               <p className="text-sm text-muted-foreground">
-                Government aided high school under BSE Odisha, established in 1992. 
-                Located at Bhotaka, Kuakhia, Jajpur district, Odisha.
+                Government aided high school under BSE Odisha, established in 1992. Located at
+                Bhotaka, Kuakhia, Jajpur district, Odisha.
               </p>
             </div>
 
@@ -141,10 +150,35 @@ export function AppShell({ children }: AppShellProps) {
             <div>
               <h3 className="font-display text-lg font-bold mb-3">Quick Links</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="/about" className="text-muted-foreground hover:text-primary transition">About Us</a></li>
-                <li><a href="/academics" className="text-muted-foreground hover:text-primary transition">Academics</a></li>
-                <li><a href="/faculty" className="text-muted-foreground hover:text-primary transition">Faculty</a></li>
-                <li><a href="/contact" className="text-muted-foreground hover:text-primary transition">Contact</a></li>
+                <li>
+                  <a href="/about" className="text-muted-foreground hover:text-primary transition">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/academics"
+                    className="text-muted-foreground hover:text-primary transition"
+                  >
+                    Academics
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/faculty"
+                    className="text-muted-foreground hover:text-primary transition"
+                  >
+                    Faculty
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/contact"
+                    className="text-muted-foreground hover:text-primary transition"
+                  >
+                    Contact
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -152,8 +186,18 @@ export function AppShell({ children }: AppShellProps) {
             <div>
               <h3 className="font-display text-lg font-bold mb-3">Contact Info</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>📞 <a href="tel:8260191483" className="hover:text-primary">8260191483</a></li>
-                <li>📧 <a href="mailto:hingulavidyapitha@gmail.com" className="hover:text-primary">hingulavidyapitha@gmail.com</a></li>
+                <li>
+                  📞{" "}
+                  <a href="tel:8260191483" className="hover:text-primary">
+                    8260191483
+                  </a>
+                </li>
+                <li>
+                  📧{" "}
+                  <a href="mailto:hingulavidyapitha@gmail.com" className="hover:text-primary">
+                    hingulavidyapitha@gmail.com
+                  </a>
+                </li>
                 <li>📍 AT/PO-Bhotaka, Kuakhia, Dist-Jajpur, Odisha</li>
               </ul>
             </div>

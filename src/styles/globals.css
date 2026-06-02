@@ -66,11 +66,11 @@
     background-clip: text;
     color: transparent;
   }
-  
+
   .shadow-elegant {
     box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.15);
   }
-  
+
   .container {
     max-width: 1400px;
     margin-left: auto;
@@ -78,7 +78,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
   @media (min-width: 768px) {
     .container {
       padding-left: 2rem;

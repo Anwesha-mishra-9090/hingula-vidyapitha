@@ -1,5 +1,5 @@
-import { Facebook, Twitter, Youtube, Mail, Phone, MapPin } from 'lucide-react';
-import { LogoMark } from '@/components/shared/LogoMark';
+import { Facebook, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { LogoMark } from "@/components/shared/LogoMark";
 
 export function Footer() {
   return (
@@ -24,11 +24,34 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="/about" className="text-muted-foreground hover:text-primary transition">About Us</a></li>
-              <li><a href="/academics" className="text-muted-foreground hover:text-primary transition">Academics</a></li>
-              <li><a href="/faculty" className="text-muted-foreground hover:text-primary transition">Faculty</a></li>
-              <li><a href="/notices" className="text-muted-foreground hover:text-primary transition">Notices</a></li>
-              <li><a href="/contact" className="text-muted-foreground hover:text-primary transition">Contact</a></li>
+              <li>
+                <a href="/about" className="text-muted-foreground hover:text-primary transition">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/academics"
+                  className="text-muted-foreground hover:text-primary transition"
+                >
+                  Academics
+                </a>
+              </li>
+              <li>
+                <a href="/faculty" className="text-muted-foreground hover:text-primary transition">
+                  Faculty
+                </a>
+              </li>
+              <li>
+                <a href="/notices" className="text-muted-foreground hover:text-primary transition">
+                  Notices
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="text-muted-foreground hover:text-primary transition">
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -42,11 +65,15 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                <a href="tel:8260191483" className="hover:text-primary">8260191483</a>
+                <a href="tel:8260191483" className="hover:text-primary">
+                  8260191483
+                </a>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="h-4 w-4" />
-                <a href="mailto:hingulavidyapitha@gmail.com" className="hover:text-primary">hingulavidyapitha@gmail.com</a>
+                <a href="mailto:hingulavidyapitha@gmail.com" className="hover:text-primary">
+                  hingulavidyapitha@gmail.com
+                </a>
               </li>
             </ul>
           </div>
@@ -61,7 +88,12 @@ export function Footer() {
               <a href="#" className="p-2 rounded-lg bg-muted hover:bg-primary/10 transition">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="https://youtube.com/channel/UCObdFVD75nivRmynUrLRutg" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-muted hover:bg-primary/10 transition">
+              <a
+                href="https://youtube.com/channel/UCObdFVD75nivRmynUrLRutg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-muted hover:bg-primary/10 transition"
+              >
                 <Youtube className="h-5 w-5" />
               </a>
             </div>

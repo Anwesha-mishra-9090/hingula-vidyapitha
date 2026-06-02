@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { AlertTriangle } from 'lucide-react';
-import type { NoticeRecord } from '@/data/notices';
+import { AlertTriangle } from "lucide-react";
+import type { NoticeRecord } from "@/data/notices";
 
 interface UrgentNoticeCardProps {
   notice: NoticeRecord;

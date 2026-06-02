@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useRef, useState } from 'react';
-import { Play, Pause, Maximize2, Volume2, VolumeX } from 'lucide-react';
+import { useRef, useState } from "react";
+import { Play, Pause, Maximize2, Volume2, VolumeX } from "lucide-react";
 
 interface VideoShowcaseProps {
   src: string;
@@ -56,7 +56,7 @@ export function VideoShowcase({ src, poster, title }: VideoShowcaseProps) {
         onTimeUpdate={handleTimeUpdate}
         onClick={togglePlay}
       />
-      
+
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition">
         <div className="absolute bottom-0 left-0 right-0 p-4">
           <div className="flex items-center gap-3">
@@ -75,7 +75,7 @@ export function VideoShowcase({ src, poster, title }: VideoShowcaseProps) {
           </div>
         </div>
       </div>
-      
+
       {title && (
         <div className="absolute top-4 left-4 bg-black/60 px-3 py-1 rounded-full text-xs text-white">
           {title}

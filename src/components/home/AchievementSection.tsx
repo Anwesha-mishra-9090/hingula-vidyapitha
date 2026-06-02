@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Trophy, ChevronRight } from 'lucide-react';
-import { ACHIEVEMENTS } from '@/data/school';
+import Link from "next/link";
+import { Trophy, ChevronRight } from "lucide-react";
+import { ACHIEVEMENTS } from "@/data/school";
 
 export function AchievementSection() {
   const recentAchievements = ACHIEVEMENTS.slice(0, 4);
@@ -14,11 +14,14 @@ export function AchievementSection() {
           <Trophy className="h-5 w-5 text-gold" />
           <h3 className="font-display text-lg font-semibold">Recent Achievements</h3>
         </div>
-        <Link href="/achievements" className="flex items-center gap-1 text-xs text-primary hover:underline">
+        <Link
+          href="/achievements"
+          className="flex items-center gap-1 text-xs text-primary hover:underline"
+        >
           View all <ChevronRight className="h-3 w-3" />
         </Link>
       </div>
-      
+
       <div className="space-y-3">
         {recentAchievements.map((achievement, i) => (
           <div key={i} className="flex items-start gap-3 rounded-lg p-2">

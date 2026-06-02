@@ -1,6 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Leaf, Trees, Sprout, Droplets, Sun, Recycle, Globe2, Users, Calendar, Award, ArrowRight, Camera } from "lucide-react";
+import {
+  Leaf,
+  Trees,
+  Sprout,
+  Droplets,
+  Sun,
+  Recycle,
+  Globe2,
+  Users,
+  Calendar,
+  Award,
+  ArrowRight,
+  Camera,
+} from "lucide-react";
 import { ECO_PHOTOS } from "@/data/media";
 
 export const Route = createFileRoute("/eco-club")({
@@ -10,19 +23,59 @@ export const Route = createFileRoute("/eco-club")({
 const ecoHero = ECO_PHOTOS[0] || "/gallery/eco/eco-01.jpg";
 
 const initiatives = [
-  { icon: Trees, title: "Plantation Drives", desc: "Annual saplings programme across the campus boundary and adopted village commons under World Environment Day." },
-  { icon: Droplets, title: "Water Stewardship", desc: "Rainwater harvesting awareness, pond restoration shramdaan and groundwater conservation lessons." },
-  { icon: Recycle, title: "Waste Segregation", desc: "Wet / dry / e-waste sorting at every classroom block and a no-single-use-plastic rule on campus." },
-  { icon: Sprout, title: "Kitchen Garden", desc: "Student-tended organic patch behind the activity hall — seasonal vegetables grown without chemical inputs." },
-  { icon: Sun, title: "Climate Literacy", desc: "Weekly reading circle on climate science and Odisha-specific climate impact talks." },
-  { icon: Globe2, title: "Community Outreach", desc: "Door-to-door cleanliness drives and awareness rallies in Bhotaka and surrounding hamlets." },
+  {
+    icon: Trees,
+    title: "Plantation Drives",
+    desc: "Annual saplings programme across the campus boundary and adopted village commons under World Environment Day.",
+  },
+  {
+    icon: Droplets,
+    title: "Water Stewardship",
+    desc: "Rainwater harvesting awareness, pond restoration shramdaan and groundwater conservation lessons.",
+  },
+  {
+    icon: Recycle,
+    title: "Waste Segregation",
+    desc: "Wet / dry / e-waste sorting at every classroom block and a no-single-use-plastic rule on campus.",
+  },
+  {
+    icon: Sprout,
+    title: "Kitchen Garden",
+    desc: "Student-tended organic patch behind the activity hall — seasonal vegetables grown without chemical inputs.",
+  },
+  {
+    icon: Sun,
+    title: "Climate Literacy",
+    desc: "Weekly reading circle on climate science and Odisha-specific climate impact talks.",
+  },
+  {
+    icon: Globe2,
+    title: "Community Outreach",
+    desc: "Door-to-door cleanliness drives and awareness rallies in Bhotaka and surrounding hamlets.",
+  },
 ];
 
 const timeline = [
-  { year: 2018, title: "Eco Club formally constituted", body: "Set up under TGT Science Tushar Kanti Dutta with 24 founder members." },
-  { year: 2019, title: "First mass plantation drive", body: "300 saplings planted on World Environment Day." },
-  { year: 2022, title: "Prakruti Mitra Award", body: "District-level institutional award for sustained environmental activity." },
-  { year: 2023, title: "Plastic-free campus declaration", body: "Single-use plastic banned at the canteen and classrooms." },
+  {
+    year: 2018,
+    title: "Eco Club formally constituted",
+    body: "Set up under TGT Science Tushar Kanti Dutta with 24 founder members.",
+  },
+  {
+    year: 2019,
+    title: "First mass plantation drive",
+    body: "300 saplings planted on World Environment Day.",
+  },
+  {
+    year: 2022,
+    title: "Prakruti Mitra Award",
+    body: "District-level institutional award for sustained environmental activity.",
+  },
+  {
+    year: 2023,
+    title: "Plastic-free campus declaration",
+    body: "Single-use plastic banned at the canteen and classrooms.",
+  },
 ];
 
 const stats = [
@@ -45,17 +98,26 @@ function EcoClubPage() {
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-xs uppercase tracking-wider text-green-300 font-semibold">
             <Leaf className="h-3 w-3" /> Eco Club · Est. 2018
           </div>
-          <h1 className="font-display text-3xl md:text-5xl font-bold mt-4">For a Greener Hingula</h1>
+          <h1 className="font-display text-3xl md:text-5xl font-bold mt-4">
+            For a Greener Hingula
+          </h1>
           <p className="mt-4 text-white/80 max-w-2xl">
-            The Eco Club is a student-led movement for environmental stewardship — rooted in the soil of Bhotaka, 
-            growing in the consciousness of every cadet of green. Plantation, conservation, awareness and quiet, 
-            sustained care for the campus and the village around it.
+            The Eco Club is a student-led movement for environmental stewardship — rooted in the
+            soil of Bhotaka, growing in the consciousness of every cadet of green. Plantation,
+            conservation, awareness and quiet, sustained care for the campus and the village around
+            it.
           </p>
           <div className="flex flex-wrap gap-3 mt-6">
-            <Link to="/gallery" className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-white text-green-800 font-semibold hover:bg-white/90 transition">
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-white text-green-800 font-semibold hover:bg-white/90 transition"
+            >
               View Gallery <ArrowRight className="h-4 w-4" />
             </Link>
-            <a href="tel:9937708405" className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-white/20 text-white font-semibold hover:bg-white/30 transition">
+            <a
+              href="tel:9937708405"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-white/20 text-white font-semibold hover:bg-white/30 transition"
+            >
               Contact In-charge
             </a>
           </div>
@@ -90,7 +152,9 @@ function EcoClubPage() {
             <Leaf className="h-8 w-8 text-white" />
           </div>
           <div>
-            <div className="text-xs uppercase tracking-wider text-muted-foreground">Faculty In-charge</div>
+            <div className="text-xs uppercase tracking-wider text-muted-foreground">
+              Faculty In-charge
+            </div>
             <h3 className="font-display text-xl font-bold">Tushar Kanti Dutta</h3>
             <div className="text-sm text-muted-foreground">TGT Science · Eco Club Convenor</div>
             <p className="text-sm text-muted-foreground mt-2 max-w-2xl">
@@ -172,7 +236,10 @@ function EcoClubPage() {
       <div>
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-display text-2xl font-bold">Green Moments Gallery</h2>
-          <Link to="/gallery" className="text-sm text-primary hover:underline inline-flex items-center gap-1">
+          <Link
+            to="/gallery"
+            className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+          >
             View All <ArrowRight className="h-3 w-3" />
           </Link>
         </div>

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface NCCGalleryStripProps {
   images: { src: string; title: string }[];

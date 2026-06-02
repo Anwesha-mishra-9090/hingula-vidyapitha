@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle } from "lucide-react";
 
 export function FloatingWhatsApp() {
-  const phoneNumber = '918260191483';
-  const message = encodeURIComponent('Hello, I would like to inquire about Hingula Vidya Pitha.');
+  const phoneNumber = "918260191483";
+  const message = encodeURIComponent("Hello, I would like to inquire about Hingula Vidya Pitha.");
 
   return (
     <a

@@ -21,101 +21,101 @@ export type Faculty = {
 };
 
 export const FACULTY: Faculty[] = [
-  { 
-    id: "rck", 
-    name: "Ramesh Chandra Khuntia", 
-    designation: "Head Master", 
-    department: "ADMINISTRATION", 
-    phone: "8260191483", 
+  {
+    id: "rck",
+    name: "Ramesh Chandra Khuntia",
+    designation: "Head Master",
+    department: "ADMINISTRATION",
+    phone: "8260191483",
     badge: "H.M.",
     photo: "/images/faculty/headmaster.webp",
     qualification: "M.A., B.Ed.",
     experience: 28,
-    email: "rckhuntia@hingulavidyapitha.edu.in"
+    email: "rckhuntia@hingulavidyapitha.edu.in",
   },
-  { 
-    id: "anm", 
-    name: "Ananta Narayan Mishra", 
-    designation: "TGT Arts", 
-    department: "ENGLISH & GEOGRAPHY", 
+  {
+    id: "anm",
+    name: "Ananta Narayan Mishra",
+    designation: "TGT Arts",
+    department: "ENGLISH & GEOGRAPHY",
     phone: "9437438984",
     photo: "/images/faculty/ananta-mishra.webp",
     qualification: "M.A. (English), B.Ed.",
     experience: 22,
-    subjects: ["English", "Geography"]
+    subjects: ["English", "Geography"],
   },
-  { 
-    id: "tkd", 
-    name: "Tushar Kanti Dutta", 
-    designation: "TGT Science", 
-    department: "SCIENCE, MATH & ECO CLUB", 
+  {
+    id: "tkd",
+    name: "Tushar Kanti Dutta",
+    designation: "TGT Science",
+    department: "SCIENCE, MATH & ECO CLUB",
     phone: "9937708405",
     photo: "/images/faculty/tushar-dutta.webp",
     qualification: "M.Sc. (Physics), B.Ed.",
     experience: 18,
-    subjects: ["Physics", "Chemistry", "Mathematics"]
+    subjects: ["Physics", "Chemistry", "Mathematics"],
   },
-  { 
-    id: "rkm", 
-    name: "Ranjan Kumar Mishra", 
-    designation: "TGT Sanskrit & Odia", 
-    department: "NCC", 
-    phone: "9777386536", 
+  {
+    id: "rkm",
+    name: "Ranjan Kumar Mishra",
+    designation: "TGT Sanskrit & Odia",
+    department: "NCC",
+    phone: "9777386536",
     badge: "NCC ANO",
     photo: "/images/faculty/ranjan-mishra.webp",
     qualification: "M.A. (Sanskrit), B.Ed.",
     experience: 20,
-    subjects: ["Sanskrit", "Odia"]
+    subjects: ["Sanskrit", "Odia"],
   },
-  { 
-    id: "skk", 
-    name: "Suresh Kumar Kar", 
-    designation: "TGT Hindi", 
-    department: "HINDI", 
+  {
+    id: "skk",
+    name: "Suresh Kumar Kar",
+    designation: "TGT Hindi",
+    department: "HINDI",
     phone: "8144024034",
     photo: "/images/faculty/suresh-kar.webp",
     qualification: "M.A. (Hindi), B.Ed.",
     experience: 32,
-    subjects: ["Hindi"]
+    subjects: ["Hindi"],
   },
-  { 
-    id: "nbs", 
-    name: "Nabaghana Sahoo", 
-    designation: "P.E.T & History", 
-    department: "PHYSICAL EDUCATION", 
+  {
+    id: "nbs",
+    name: "Nabaghana Sahoo",
+    designation: "P.E.T & History",
+    department: "PHYSICAL EDUCATION",
     phone: "9777100524",
     photo: "/images/faculty/nabaghana-sahoo.webp",
     qualification: "B.P.Ed., M.A. (History)",
     experience: 15,
-    subjects: ["Physical Education", "History"]
+    subjects: ["Physical Education", "History"],
   },
-  { 
-    id: "pkd", 
-    name: "Prasanta Kumar Das", 
-    designation: "Office Clerk", 
-    department: "ADMINISTRATION", 
+  {
+    id: "pkd",
+    name: "Prasanta Kumar Das",
+    designation: "Office Clerk",
+    department: "ADMINISTRATION",
     phone: "7504855184",
     photo: "/images/faculty/prasanta-das.webp",
     qualification: "B.Com",
-    experience: 12
+    experience: 12,
   },
-  { 
-    id: "jbs", 
-    name: "Jagabandhu Sahoo", 
-    designation: "Science Attendant", 
-    department: "LABORATORY", 
+  {
+    id: "jbs",
+    name: "Jagabandhu Sahoo",
+    designation: "Science Attendant",
+    department: "LABORATORY",
     phone: "7377141225",
     photo: "/images/faculty/jagabandhu-sahoo.webp",
-    experience: 8
+    experience: 8,
   },
-  { 
-    id: "skr", 
-    name: "Sanjay Kumar Rout", 
-    designation: "Office Attendant", 
-    department: "ADMINISTRATION", 
+  {
+    id: "skr",
+    name: "Sanjay Kumar Rout",
+    designation: "Office Attendant",
+    department: "ADMINISTRATION",
     phone: "9040494436",
     photo: "/images/faculty/sanjay-rout.webp",
-    experience: 5
+    experience: 5,
   },
 ];
 
@@ -157,12 +157,50 @@ export const NAV_GROUPS = [
 ];
 
 export const NOTICES = [
-  { id: 1, title: "Annual Examination Schedule 2026 Released", date: "2026-05-15", category: "Academics", pinned: true, priority: "high" },
-  { id: 2, title: "NCC Annual Training Camp — Registration Open", date: "2026-05-12", category: "NCC", pinned: true, priority: "high" },
-  { id: 3, title: "Mid-Day Meal Menu Revision Notice", date: "2026-05-10", category: "Administration", priority: "medium" },
-  { id: 4, title: "Inter-School Sports Meet — Selection Trials", date: "2026-05-08", category: "Sports", priority: "medium" },
-  { id: 5, title: "Parent-Teacher Meeting — Class X", date: "2026-05-05", category: "Academics", priority: "low" },
-  { id: 6, title: "Plantation Drive on World Environment Day", date: "2026-05-01", category: "Events", priority: "low" },
+  {
+    id: 1,
+    title: "Annual Examination Schedule 2026 Released",
+    date: "2026-05-15",
+    category: "Academics",
+    pinned: true,
+    priority: "high",
+  },
+  {
+    id: 2,
+    title: "NCC Annual Training Camp — Registration Open",
+    date: "2026-05-12",
+    category: "NCC",
+    pinned: true,
+    priority: "high",
+  },
+  {
+    id: 3,
+    title: "Mid-Day Meal Menu Revision Notice",
+    date: "2026-05-10",
+    category: "Administration",
+    priority: "medium",
+  },
+  {
+    id: 4,
+    title: "Inter-School Sports Meet — Selection Trials",
+    date: "2026-05-08",
+    category: "Sports",
+    priority: "medium",
+  },
+  {
+    id: 5,
+    title: "Parent-Teacher Meeting — Class X",
+    date: "2026-05-05",
+    category: "Academics",
+    priority: "low",
+  },
+  {
+    id: 6,
+    title: "Plantation Drive on World Environment Day",
+    date: "2026-05-01",
+    category: "Events",
+    priority: "low",
+  },
 ];
 
 export const ACHIEVEMENTS = [

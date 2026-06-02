@@ -1,27 +1,27 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { usePathname, Link } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
-import { LogoMark } from '@/components/shared/LogoMark';
-import { cn } from '@/lib/utils';
+import { useEffect } from "react";
+import { usePathname, Link } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
+import { LogoMark } from "@/components/shared/LogoMark";
+import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: 'Dashboard', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Academics', href: '/academics' },
-  { label: 'Faculty', href: '/faculty' },
-  { label: 'Excellence', href: '/excellence' },
-  { label: 'Alumni', href: '/alumni' },
-  { label: 'NCC Unit', href: '/ncc' },
-  { label: 'Eco Club', href: '/eco-club' },
-  { label: 'Energy Club', href: '/energy-club' },
-  { label: 'Campus Life', href: '/campus-life' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Notices', href: '/notices' },
-  { label: 'Achievements', href: '/achievements' },
-  { label: 'Contact', href: '/contact' },
+  { label: "Dashboard", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Academics", href: "/academics" },
+  { label: "Faculty", href: "/faculty" },
+  { label: "Excellence", href: "/excellence" },
+  { label: "Alumni", href: "/alumni" },
+  { label: "NCC Unit", href: "/ncc" },
+  { label: "Eco Club", href: "/eco-club" },
+  { label: "Energy Club", href: "/energy-club" },
+  { label: "Campus Life", href: "/campus-life" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Notices", href: "/notices" },
+  { label: "Achievements", href: "/achievements" },
+  { label: "Contact", href: "/contact" },
 ];
 
 interface MobileNavProps {
@@ -34,12 +34,12 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
@@ -55,10 +55,10 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
             onClick={onClose}
           />
           <motion.div
-            initial={{ x: '-100%' }}
+            initial={{ x: "-100%" }}
             animate={{ x: 0 }}
-            exit={{ x: '-100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            exit={{ x: "-100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="fixed left-0 top-0 z-50 h-full w-72 bg-card shadow-xl lg:hidden"
           >
             <div className="flex h-16 items-center justify-between border-b border-border px-4">
@@ -83,10 +83,10 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                         href={item.href}
                         onClick={onClose}
                         className={cn(
-                          'flex items-center rounded-lg px-3 py-2 text-sm font-medium transition-all',
+                          "flex items-center rounded-lg px-3 py-2 text-sm font-medium transition-all",
                           isActive
-                            ? 'bg-primary text-primary-foreground'
-                            : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+                            ? "bg-primary text-primary-foreground"
+                            : "text-muted-foreground hover:bg-accent hover:text-foreground"
                         )}
                       >
                         {item.label}

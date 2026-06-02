@@ -1,14 +1,18 @@
-'use client';
+"use client";
 
-import { motion, HTMLMotionProps } from 'framer-motion';
-import { ReactNode } from 'react';
+import { motion, HTMLMotionProps } from "framer-motion";
+import { ReactNode } from "react";
 
-interface StaggerContainerProps extends HTMLMotionProps<'div'> {
+interface StaggerContainerProps extends HTMLMotionProps<"div"> {
   children: ReactNode;
   staggerDelay?: number;
 }
 
-export function StaggerContainer({ children, staggerDelay = 0.1, ...props }: StaggerContainerProps) {
+export function StaggerContainer({
+  children,
+  staggerDelay = 0.1,
+  ...props
+}: StaggerContainerProps) {
   return (
     <motion.div
       initial="hidden"

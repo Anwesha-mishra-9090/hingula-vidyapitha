@@ -1,21 +1,21 @@
-import { createRootRoute, createRoute, createRouter } from '@tanstack/react-router';
-import { AppShell } from '@/components/layout/AppShell';
+import { createRootRoute, createRoute, createRouter } from "@tanstack/react-router";
+import { AppShell } from "@/components/layout/AppShell";
 
 // Import all route components
-import IndexPage from './routes/index';
-import AboutPage from './routes/about';
-import AcademicsPage from './routes/academics';
-import AchievementsPage from './routes/achievements';
-import AlumniPage from './routes/alumni';
-import CampusLifePage from './routes/campus-life';
-import ContactPage from './routes/contact';
-import EcoClubPage from './routes/eco-club';
-import EnergyClubPage from './routes/energy-club';
-import ExcellencePage from './routes/excellence';
-import FacultyPage from './routes/faculty';
-import GalleryPage from './routes/gallery';
-import NccPage from './routes/ncc';
-import NoticesPage from './routes/notices';
+import IndexPage from "./routes/index";
+import AboutPage from "./routes/about";
+import AcademicsPage from "./routes/academics";
+import AchievementsPage from "./routes/achievements";
+import AlumniPage from "./routes/alumni";
+import CampusLifePage from "./routes/campus-life";
+import ContactPage from "./routes/contact";
+import EcoClubPage from "./routes/eco-club";
+import EnergyClubPage from "./routes/energy-club";
+import ExcellencePage from "./routes/excellence";
+import FacultyPage from "./routes/faculty";
+import GalleryPage from "./routes/gallery";
+import NccPage from "./routes/ncc";
+import NoticesPage from "./routes/notices";
 
 // Root route with AppShell layout
 const rootRoute = createRootRoute({
@@ -28,8 +28,15 @@ const rootRoute = createRootRoute({
         <div className="text-center">
           <h1 className="text-7xl font-bold text-foreground">404</h1>
           <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-          <p className="mt-2 text-sm text-muted-foreground">The page you're looking for doesn't exist.</p>
-          <a href="/" className="inline-block mt-6 px-4 py-2 rounded-md bg-primary text-primary-foreground">Go home</a>
+          <p className="mt-2 text-sm text-muted-foreground">
+            The page you're looking for doesn't exist.
+          </p>
+          <a
+            href="/"
+            className="inline-block mt-6 px-4 py-2 rounded-md bg-primary text-primary-foreground"
+          >
+            Go home
+          </a>
         </div>
       </div>
     );
@@ -37,20 +44,72 @@ const rootRoute = createRootRoute({
 });
 
 // Create routes
-const indexRoute = createRoute({ getParentRoute: () => rootRoute, path: '/', component: IndexPage });
-const aboutRoute = createRoute({ getParentRoute: () => rootRoute, path: '/about', component: AboutPage });
-const academicsRoute = createRoute({ getParentRoute: () => rootRoute, path: '/academics', component: AcademicsPage });
-const achievementsRoute = createRoute({ getParentRoute: () => rootRoute, path: '/achievements', component: AchievementsPage });
-const alumniRoute = createRoute({ getParentRoute: () => rootRoute, path: '/alumni', component: AlumniPage });
-const campusLifeRoute = createRoute({ getParentRoute: () => rootRoute, path: '/campus-life', component: CampusLifePage });
-const contactRoute = createRoute({ getParentRoute: () => rootRoute, path: '/contact', component: ContactPage });
-const ecoClubRoute = createRoute({ getParentRoute: () => rootRoute, path: '/eco-club', component: EcoClubPage });
-const energyClubRoute = createRoute({ getParentRoute: () => rootRoute, path: '/energy-club', component: EnergyClubPage });
-const excellenceRoute = createRoute({ getParentRoute: () => rootRoute, path: '/excellence', component: ExcellencePage });
-const facultyRoute = createRoute({ getParentRoute: () => rootRoute, path: '/faculty', component: FacultyPage });
-const galleryRoute = createRoute({ getParentRoute: () => rootRoute, path: '/gallery', component: GalleryPage });
-const nccRoute = createRoute({ getParentRoute: () => rootRoute, path: '/ncc', component: NccPage });
-const noticesRoute = createRoute({ getParentRoute: () => rootRoute, path: '/notices', component: NoticesPage });
+const indexRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/",
+  component: IndexPage,
+});
+const aboutRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/about",
+  component: AboutPage,
+});
+const academicsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/academics",
+  component: AcademicsPage,
+});
+const achievementsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/achievements",
+  component: AchievementsPage,
+});
+const alumniRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/alumni",
+  component: AlumniPage,
+});
+const campusLifeRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/campus-life",
+  component: CampusLifePage,
+});
+const contactRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/contact",
+  component: ContactPage,
+});
+const ecoClubRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/eco-club",
+  component: EcoClubPage,
+});
+const energyClubRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/energy-club",
+  component: EnergyClubPage,
+});
+const excellenceRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/excellence",
+  component: ExcellencePage,
+});
+const facultyRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/faculty",
+  component: FacultyPage,
+});
+const galleryRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/gallery",
+  component: GalleryPage,
+});
+const nccRoute = createRoute({ getParentRoute: () => rootRoute, path: "/ncc", component: NccPage });
+const noticesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/notices",
+  component: NoticesPage,
+});
 
 // Build route tree
 const routeTree = rootRoute.addChildren([
@@ -73,7 +132,7 @@ const routeTree = rootRoute.addChildren([
 // Create router
 export const router = createRouter({
   routeTree,
-  defaultPreload: 'intent',
+  defaultPreload: "intent",
   scrollRestoration: true,
 });
 

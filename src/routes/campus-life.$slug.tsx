@@ -7,7 +7,7 @@ import { FACILITIES, type Facility } from "@/data/facilities";
 export const Route = createFileRoute("/campus-life/$slug")({
   component: FacilityDetailPage,
   loader: ({ params }) => {
-    const facility = FACILITIES.find(f => f.slug === params.slug);
+    const facility = FACILITIES.find((f) => f.slug === params.slug);
     if (!facility) throw new Error("Facility not found");
     return { facility };
   },
@@ -21,7 +21,9 @@ function FacilityDetailPage() {
     <div className="container py-8">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-        <Link to="/campus-life" className="hover:text-primary transition">Campus Life</Link>
+        <Link to="/campus-life" className="hover:text-primary transition">
+          Campus Life
+        </Link>
         <span>/</span>
         <span className="text-foreground">{f.name}</span>
       </div>
@@ -56,7 +58,9 @@ function FacilityDetailPage() {
             <h2 className="font-display text-2xl font-bold mb-3">Overview</h2>
             <p className="text-muted-foreground leading-relaxed">{f.intro}</p>
             {f.longDescription.map((p, i) => (
-              <p key={i} className="text-muted-foreground leading-relaxed mt-3">{p}</p>
+              <p key={i} className="text-muted-foreground leading-relaxed mt-3">
+                {p}
+              </p>
             ))}
           </div>
 
@@ -66,7 +70,10 @@ function FacilityDetailPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {f.stats.map((stat, i) => (
                 <div key={i} className="text-center p-4 rounded-lg bg-muted/50">
-                  <div className="font-display text-2xl font-bold text-primary">{stat.value}{stat.suffix}</div>
+                  <div className="font-display text-2xl font-bold text-primary">
+                    {stat.value}
+                    {stat.suffix}
+                  </div>
                   <div className="text-xs text-muted-foreground">{stat.label}</div>
                 </div>
               ))}
@@ -95,7 +102,9 @@ function FacilityDetailPage() {
               <div className="space-y-4">
                 {f.timeline.map((t, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="w-20 flex-shrink-0 font-display text-xl font-bold text-primary">{t.year}</div>
+                    <div className="w-20 flex-shrink-0 font-display text-xl font-bold text-primary">
+                      {t.year}
+                    </div>
                     <div>
                       <div className="font-semibold">{t.title}</div>
                       <p className="text-sm text-muted-foreground">{t.body}</p>
@@ -112,8 +121,10 @@ function FacilityDetailPage() {
           <div className="p-5 rounded-xl border border-border bg-card">
             <h3 className="font-semibold mb-3">Departments</h3>
             <div className="flex flex-wrap gap-2">
-              {f.departments.map(d => (
-                <span key={d} className="px-2 py-1 rounded-full text-xs bg-muted">{d}</span>
+              {f.departments.map((d) => (
+                <span key={d} className="px-2 py-1 rounded-full text-xs bg-muted">
+                  {d}
+                </span>
               ))}
             </div>
           </div>
@@ -161,18 +172,43 @@ function FacilityDetailPage() {
 
       {/* Lightbox Modal */}
       {lightbox !== null && (
-        <div className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4" onClick={() => setLightbox(null)}>
-          <button className="absolute top-4 right-4 text-white/70 hover:text-white" onClick={() => setLightbox(null)}>
+        <div
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white/70 hover:text-white"
+            onClick={() => setLightbox(null)}
+          >
             <X className="h-6 w-6" />
           </button>
-          <button className="absolute left-4 text-white/70 hover:text-white" onClick={(e) => { e.stopPropagation(); setLightbox((lightbox - 1 + f.gallery.length) % f.gallery.length); }}>
+          <button
+            className="absolute left-4 text-white/70 hover:text-white"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightbox((lightbox - 1 + f.gallery.length) % f.gallery.length);
+            }}
+          >
             <ChevronLeft className="h-8 w-8" />
           </button>
-          <img src={f.gallery[lightbox].src} alt={f.gallery[lightbox].caption} className="max-h-[85vh] max-w-[85vw] rounded-lg object-contain" onClick={(e) => e.stopPropagation()} />
-          <button className="absolute right-4 text-white/70 hover:text-white" onClick={(e) => { e.stopPropagation(); setLightbox((lightbox + 1) % f.gallery.length); }}>
+          <img
+            src={f.gallery[lightbox].src}
+            alt={f.gallery[lightbox].caption}
+            className="max-h-[85vh] max-w-[85vw] rounded-lg object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            className="absolute right-4 text-white/70 hover:text-white"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightbox((lightbox + 1) % f.gallery.length);
+            }}
+          >
             <ChevronRight className="h-8 w-8" />
           </button>
-          <div className="absolute bottom-4 text-white/50 text-sm">{lightbox + 1} / {f.gallery.length}</div>
+          <div className="absolute bottom-4 text-white/50 text-sm">
+            {lightbox + 1} / {f.gallery.length}
+          </div>
         </div>
       )}
     </div>

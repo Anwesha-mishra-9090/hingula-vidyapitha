@@ -42,11 +42,11 @@ export const TOPPERS: Topper[] = [
 ];
 
 export const TOPPER_STATS = {
-  totalYears: new Set(TOPPERS.map(t => t.year)).size,
+  totalYears: new Set(TOPPERS.map((t) => t.year)).size,
   totalToppers: TOPPERS.length,
-  highestScore: Math.max(...TOPPERS.map(t => t.marks)),
-  highestScorer: TOPPERS.find(t => t.marks === Math.max(...TOPPERS.map(x => x.marks)))!,
+  highestScore: Math.max(...TOPPERS.map((t) => t.marks)),
+  highestScorer: TOPPERS.find((t) => t.marks === Math.max(...TOPPERS.map((x) => x.marks)))!,
   averageScore: Math.round(TOPPERS.reduce((s, t) => s + t.marks, 0) / TOPPERS.length),
-  earliestYear: Math.min(...TOPPERS.map(t => t.year)),
-  latestYear: Math.max(...TOPPERS.map(t => t.year)),
+  earliestYear: Math.min(...TOPPERS.map((t) => t.year)),
+  latestYear: Math.max(...TOPPERS.map((t) => t.year)),
 };

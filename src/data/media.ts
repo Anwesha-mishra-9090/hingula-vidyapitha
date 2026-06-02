@@ -1,9 +1,11 @@
-export const ECO_PHOTOS: string[] = Array.from({ length: 33 }, (_, i) =>
-  `/gallery/eco/eco-${String(i + 1).padStart(2, "0")}.jpg`
+export const ECO_PHOTOS: string[] = Array.from(
+  { length: 33 },
+  (_, i) => `/gallery/eco/eco-${String(i + 1).padStart(2, "0")}.jpg`
 );
 
-export const ENERGY_PHOTOS: string[] = Array.from({ length: 33 }, (_, i) =>
-  `/gallery/energy/energy-${String(i + 1).padStart(2, "0")}.jpg`
+export const ENERGY_PHOTOS: string[] = Array.from(
+  { length: 33 },
+  (_, i) => `/gallery/energy/energy-${String(i + 1).padStart(2, "0")}.jpg`
 );
 
 export const INSTITUTIONAL_VIDEOS = [

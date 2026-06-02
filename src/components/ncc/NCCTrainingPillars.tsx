@@ -1,15 +1,39 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Footprints, Target, Compass, HeartHandshake, BookOpen, Mountain } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Footprints, Target, Compass, HeartHandshake, BookOpen, Mountain } from "lucide-react";
 
 const pillars = [
-  { icon: Footprints, title: 'Drill & Parade', desc: 'Weekly parade practice on the school ground. Foot drill, arms drill and ceremonial movements.' },
-  { icon: Target, title: 'Weapon Training', desc: 'Familiarisation with .22 rifle under supervised range conditions during ATCs.' },
-  { icon: Compass, title: 'Map Reading & Field Craft', desc: 'Direction-finding, contour reading, field signals and concealment.' },
-  { icon: Mountain, title: 'Adventure Activities', desc: 'Trekking, obstacle course and rock-climbing through state-level adventure camps.' },
-  { icon: HeartHandshake, title: 'Social Service', desc: 'Swachh Bharat drives, plantation, blood donation awareness and road-safety campaigns.' },
-  { icon: BookOpen, title: 'Institutional Training', desc: 'Theory on NCC organisation, national integration, leadership and disaster management.' },
+  {
+    icon: Footprints,
+    title: "Drill & Parade",
+    desc: "Weekly parade practice on the school ground. Foot drill, arms drill and ceremonial movements.",
+  },
+  {
+    icon: Target,
+    title: "Weapon Training",
+    desc: "Familiarisation with .22 rifle under supervised range conditions during ATCs.",
+  },
+  {
+    icon: Compass,
+    title: "Map Reading & Field Craft",
+    desc: "Direction-finding, contour reading, field signals and concealment.",
+  },
+  {
+    icon: Mountain,
+    title: "Adventure Activities",
+    desc: "Trekking, obstacle course and rock-climbing through state-level adventure camps.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Social Service",
+    desc: "Swachh Bharat drives, plantation, blood donation awareness and road-safety campaigns.",
+  },
+  {
+    icon: BookOpen,
+    title: "Institutional Training",
+    desc: "Theory on NCC organisation, national integration, leadership and disaster management.",
+  },
 ];
 
 export function NCCTrainingPillars() {

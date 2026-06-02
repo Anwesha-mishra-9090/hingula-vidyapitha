@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { Youtube, ArrowRight } from 'lucide-react';
+import { Youtube, ArrowRight } from "lucide-react";
 
 interface YouTubeChannelProps {
   compact?: boolean;
 }
 
 export function YouTubeChannel({ compact = false }: YouTubeChannelProps) {
-  const channelUrl = 'https://www.youtube.com/channel/UCObdFVD75nivRmynUrLRutg';
-  const embedUrl = 'https://www.youtube.com/embed/videoseries?list=UUSObdFVD75nivRmynUrLRutg';
+  const channelUrl = "https://www.youtube.com/channel/UCObdFVD75nivRmynUrLRutg";
+  const embedUrl = "https://www.youtube.com/embed/videoseries?list=UUSObdFVD75nivRmynUrLRutg";
 
   if (compact) {
     return (
@@ -32,7 +32,8 @@ export function YouTubeChannel({ compact = false }: YouTubeChannelProps) {
           <Youtube className="h-8 w-8 text-red-600 mb-3" />
           <h3 className="font-display text-xl font-bold">Hingula Vidya Pitha on YouTube</h3>
           <p className="text-sm text-muted-foreground mt-2">
-            Watch campus events, cultural programs, NCC parades, and student achievements on our official channel.
+            Watch campus events, cultural programs, NCC parades, and student achievements on our
+            official channel.
           </p>
           <a
             href={channelUrl}
