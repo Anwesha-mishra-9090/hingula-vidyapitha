@@ -198,5 +198,6 @@ function EcoClubPage() {
       </div>
     </div>
   );
-}e x p o r t   d e f a u l t   E c o C l u b P a g e ;  
- 
+}
+
+export default EcoClubPage;

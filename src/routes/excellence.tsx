@@ -184,5 +184,7 @@ function ExcellencePage() {
       </section>
     </div>
   );
-}e x p o r t   d e f a u l t   E x c e l l e n c e P a g e ;  
- 
+}
+
+export default ExcellencePage;
+
