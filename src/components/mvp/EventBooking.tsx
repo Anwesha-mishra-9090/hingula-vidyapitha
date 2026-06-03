@@ -26,31 +26,36 @@ export function EventBooking({ event }: { event: string }) {
     localStorage.setItem("hvp_bookings", JSON.stringify(bookings));
   }, [bookings]);
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!name || !phone || !date) return;
     const b: Booking = { id: Date.now().toString(), name, phone, event, date };
     setBookings((s) => [b, ...s]);
+
     let saved = false;
-    // Try to persist to serverless endpoint; fallback to localStorage only
-    (async () => {
-      try {
-        await fetch('/api/bookings', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(b),
-        });
-        // track event if analytics present
-        try { trackEvent('booking_success', { event: b.event, date: b.date, name: b.name }); } catch {}
-        saved = true;
-      } catch (err) {
-        // ignore — localStorage keeps booking
-      }
-    })();
+    try {
+      const resp = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(b),
+      });
+      const json = await resp.json().catch(() => ({}));
+      saved = !!json.saved;
+      try { trackEvent('booking_success', { event: b.event, date: b.date, name: b.name, saved }); } catch {}
+    } catch (err) {
+      // ignore — localStorage keeps booking
+    }
+
     setName("");
     setPhone("");
     setDate("");
-    if (saved) alert('Booking submitted — confirmation sent.');
+
+    if (saved) {
+      // Non-blocking toast would be nicer; use alert for now
+      alert('Booking submitted — confirmation sent.');
+    } else {
+      alert('Booking saved locally. Will sync when server is available.');
+    }
   }
 
   return (
