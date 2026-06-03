@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import { ScrollReveal } from "../animations/ScrollReveal";
 import { AlumniCard } from "./AlumniCard";
 import { AlumniFilters } from "./AlumniFilters";
 import { AlumniTimeline } from "./AlumniTimeline";
@@ -71,14 +71,9 @@ export function AlumniGrid() {
               </div>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {alumni.map((a, i) => (
-                  <motion.div
-                    key={`${a.name}-${a.batch}`}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: Math.min(i * 0.03, 0.5) }}
-                  >
+                  <ScrollReveal key={`${a.name}-${a.batch}`} delay={Math.min(i * 0.03, 0.5)}>
                     <AlumniCard alumni={a} />
-                  </motion.div>
+                  </ScrollReveal>
                 ))}
               </div>
             </div>

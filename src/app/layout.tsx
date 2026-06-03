@@ -19,6 +19,24 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <meta name="author" content="Hingula Vidya Pitha" />
         <link rel="icon" href="/images/logos/favicon.ico" />
+        <script type="application/ld+json">
+          {`{
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            "name": "Hingula Vidya Pitha",
+            "url": "https://example.com",
+            "logo": "/images/logos/favicon.ico",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "AT/PO-Bhotaka, Kuakhia",
+              "addressLocality": "Jajpur",
+              "addressRegion": "Odisha",
+              "postalCode": "",
+              "addressCountry": "IN"
+            },
+            "telephone": "+918260191483"
+          }`}
+        </script>
       </head>
       <body>
         <Providers>

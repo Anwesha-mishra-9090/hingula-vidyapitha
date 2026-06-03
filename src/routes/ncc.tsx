@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+// framer-motion deferred; use non-animated blocks for lists
 import {
   Shield,
   Flag,
@@ -110,18 +110,15 @@ function NCCPage() {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {stats.map((stat, i) => {
           const Icon = stat.icon;
-          return (
-            <motion.div
+            return (
+            <div
               key={stat.label}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
               className="rounded-lg border border-border bg-card p-4 text-center"
             >
               <Icon className="h-5 w-5 mx-auto text-gold" />
               <div className="font-display text-xl font-bold mt-2">{stat.value}</div>
               <div className="text-[10px] text-muted-foreground">{stat.label}</div>
-            </motion.div>
+            </div>
           );
         })}
       </div>
@@ -159,17 +156,14 @@ function NCCPage() {
           {trainingPillars.map((pillar, i) => {
             const Icon = pillar.icon;
             return (
-              <motion.div
+              <div
                 key={pillar.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.08 }}
                 className="rounded-lg border border-border bg-card p-4"
               >
                 <Icon className="h-6 w-6 text-gold" />
                 <h3 className="font-semibold mt-2">{pillar.title}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{pillar.desc}</p>
-              </motion.div>
+              </div>
             );
           })}
         </div>

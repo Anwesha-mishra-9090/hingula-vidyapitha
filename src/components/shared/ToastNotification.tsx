@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyPresence } from "@/components/animations/LazyPresence";
 import { CheckCircle, XCircle, Info, X } from "lucide-react";
 
 export type ToastType = "success" | "error" | "info";
@@ -37,18 +37,13 @@ export function ToastNotification({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: 50 }}
-      className={`fixed top-20 right-4 z-50 flex items-center gap-3 rounded-lg border p-4 shadow-lg ${colors[type]}`}
-    >
+    <div className={`fixed top-20 right-4 z-50 flex items-center gap-3 rounded-lg border p-4 shadow-lg ${colors[type]}`}>
       {icons[type]}
       <span className="text-sm">{message}</span>
       <button onClick={onClose} className="ml-2 rounded p-1 hover:bg-white/10">
         <X className="h-4 w-4" />
       </button>
-    </motion.div>
+    </div>
   );
 }
 
@@ -67,7 +62,7 @@ export function ToastContainer() {
   return (
     <>
       <div className="fixed top-16 right-4 z-50 space-y-2">
-        <AnimatePresence>
+        <LazyPresence>
           {toasts.map((toast) => (
             <ToastNotification
               key={toast.id}
@@ -76,7 +71,7 @@ export function ToastContainer() {
               onClose={() => removeToast(toast.id)}
             />
           ))}
-        </AnimatePresence>
+        </LazyPresence>
       </div>
       {typeof window !== "undefined" &&
         (window as any).__toast === undefined &&

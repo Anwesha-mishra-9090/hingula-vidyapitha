@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+// Deferred framer-motion; use non-animated blocks for lists
 import {
   Zap,
   Sun,
@@ -128,18 +128,15 @@ function EnergyClubPage() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {stats.map((stat, i) => {
           const Icon = stat.icon;
-          return (
-            <motion.div
-              key={stat.l}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.08 }}
-              className="rounded-xl border border-border bg-card p-4 text-center"
-            >
+            return (
+            <div
+                key={stat.l}
+                className="rounded-xl border border-border bg-card p-4 text-center"
+              >
               <Icon className="h-6 w-6 mx-auto text-blue-500" />
               <div className="font-display text-2xl font-bold mt-2">{stat.v}</div>
               <div className="text-[10px] text-muted-foreground">{stat.l}</div>
-            </motion.div>
+            </div>
           );
         })}
       </div>
@@ -171,11 +168,8 @@ function EnergyClubPage() {
           {projects.map((project, i) => {
             const Icon = project.icon;
             return (
-              <motion.div
+              <div
                 key={project.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.08 }}
                 className="rounded-xl border border-border bg-card p-4 hover:shadow-md transition"
               >
                 <div className="flex items-start justify-between">
@@ -186,7 +180,7 @@ function EnergyClubPage() {
                 </div>
                 <h3 className="font-semibold mt-2">{project.title}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{project.desc}</p>
-              </motion.div>
+              </div>
             );
           })}
         </div>

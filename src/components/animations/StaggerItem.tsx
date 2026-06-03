@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, HTMLMotionProps } from "framer-motion";
 import { ReactNode } from "react";
+import { MotionDiv } from "./LazyMotion";
 
 interface StaggerItemProps extends HTMLMotionProps<"div"> {
   children: ReactNode;
@@ -9,7 +9,7 @@ interface StaggerItemProps extends HTMLMotionProps<"div"> {
 
 export function StaggerItem({ children, ...props }: StaggerItemProps) {
   return (
-    <motion.div
+    <MotionDiv
       variants={{
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
@@ -17,6 +17,6 @@ export function StaggerItem({ children, ...props }: StaggerItemProps) {
       {...props}
     >
       {children}
-    </motion.div>
+    </MotionDiv>
   );
 }

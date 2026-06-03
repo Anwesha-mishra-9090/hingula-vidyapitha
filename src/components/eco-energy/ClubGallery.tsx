@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { ScrollReveal } from "../animations/ScrollReveal";
 import { Camera, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ClubGalleryProps {
@@ -30,23 +30,18 @@ export function ClubGallery({ photos, title, accentColor }: ClubGalleryProps) {
         </div>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
           {photos.slice(0, 12).map((src, i) => (
-            <motion.button
-              key={src}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.05 }}
-              onClick={() => openLightbox(i)}
-              className="group relative aspect-video overflow-hidden rounded-lg border border-border"
-            >
-              <img
-                src={src}
-                alt=""
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition group-hover:opacity-100">
-                <Camera className="h-5 w-5 text-white" />
-              </div>
-            </motion.button>
+            <ScrollReveal key={src} delay={i * 0.05} className="group relative aspect-video overflow-hidden rounded-lg border border-border">
+              <button onClick={() => openLightbox(i)} className="h-full w-full">
+                <img
+                  src={src}
+                  alt=""
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition group-hover:opacity-100">
+                  <Camera className="h-5 w-5 text-white" />
+                </div>
+              </button>
+            </ScrollReveal>
           ))}
         </div>
       </div>

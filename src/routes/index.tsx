@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+// animations are lazy-loaded where needed; no runtime framer-motion import here
 import {
   ArrowRight,
   Bell,

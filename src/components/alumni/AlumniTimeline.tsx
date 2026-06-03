@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+// framer-motion deferred; use CSS transitions for simple progress bars
 import { ALUMNI_ALL } from "@/data/alumni";
 
 const DECADES = [
@@ -41,11 +41,9 @@ export function AlumniTimeline() {
                 <span className="text-muted-foreground">{count} alumni</span>
               </div>
               <div className="h-2 rounded-full bg-muted overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${percentage}%` }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
+                <div
                   className="h-full rounded-full bg-gradient-to-r from-primary to-gold"
+                  style={{ width: `${percentage}%`, transition: "width 0.8s ease-out" }}
                 />
               </div>
             </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, Link } from "next/navigation";
-import { motion } from "framer-motion";
+import { MotionDiv } from "../animations/LazyMotion";
 import {
   LayoutDashboard,
   Landmark,
@@ -74,12 +74,7 @@ export function Sidebar() {
                   >
                     <Icon className="h-4 w-4" />
                     <span>{item.label}</span>
-                    {isActive && (
-                      <motion.div
-                        layoutId="active-indicator"
-                        className="ml-auto h-1.5 w-1.5 rounded-full bg-primary-foreground"
-                      />
-                    )}
+                    {isActive && <MotionDiv layoutId="active-indicator" className="ml-auto h-1.5 w-1.5 rounded-full bg-primary-foreground" />}
                   </Link>
                 </li>
               );

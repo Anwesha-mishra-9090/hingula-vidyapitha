@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { ScrollReveal } from "../animations/ScrollReveal";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
 interface GalleryImage {
@@ -38,23 +38,18 @@ export function FacilityGallery({ images }: FacilityGalleryProps) {
         <h2 className="mb-6 font-display text-2xl font-bold">Gallery</h2>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
           {images.slice(0, 8).map((image, i) => (
-            <motion.button
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.05 }}
-              onClick={() => openLightbox(i)}
-              className="group relative aspect-square overflow-hidden rounded-lg border border-border"
-            >
-              <img
-                src={image.src}
-                alt={image.caption}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition group-hover:opacity-100">
-                <ZoomIn className="h-6 w-6 text-white" />
-              </div>
-            </motion.button>
+            <ScrollReveal key={i} delay={i * 0.05} className="group relative aspect-square overflow-hidden rounded-lg border border-border">
+              <button onClick={() => openLightbox(i)} className="h-full w-full">
+                <img
+                  src={image.src}
+                  alt={image.caption}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition group-hover:opacity-100">
+                  <ZoomIn className="h-6 w-6 text-white" />
+                </div>
+              </button>
+            </ScrollReveal>
           ))}
         </div>
       </div>

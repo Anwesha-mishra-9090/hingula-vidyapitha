@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 
 interface LazyImageProps {
   src: string;
@@ -36,26 +35,34 @@ export function LazyImage({ src, alt, className, placeholderColor = "#f0f0f0" }:
   }, []);
 
   return (
-    <div className={`relative overflow-hidden bg-[${placeholderColor}] ${className}`}>
+    <div className={`relative overflow-hidden ${className}`} style={{ backgroundColor: placeholderColor }}>
       {isInView && (
         <>
-          <img
-            ref={imgRef}
-            src={src}
-            alt={alt}
-            className={`h-full w-full object-cover transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-            onLoad={() => setIsLoaded(true)}
-          />
+          {
+            (() => {
+              const widths = [480, 768, 1024, 1366, 1600];
+              let srcSet: string | undefined = undefined;
+              if (src.includes("w=")) {
+                srcSet = widths.map((w) => src.replace(/w=\d+/, `w=${w}`) + ` ${w}w`).join(", ");
+              }
+
+              return (
+                <img
+                  ref={imgRef}
+                  src={src}
+                  srcSet={srcSet}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  alt={alt}
+                  loading="lazy"
+                  decoding="async"
+                  className={`h-full w-full object-cover transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+                  onLoad={() => setIsLoaded(true)}
+                />
+              );
+            })()
+          }
           {!isLoaded && (
-            <motion.div
-              className="absolute inset-0"
-              animate={{ x: ["-100%", "100%"] }}
-              transition={{ duration: 1, repeat: Infinity }}
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
-              }}
-            />
+            <div className="absolute inset-0 animate-pulse" style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.06), rgba(255,255,255,0.02))" }} />
           )}
         </>
       )}

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyPresence } from "@/components/animations/LazyPresence";
 import { Phone, Search, Shield, X, Briefcase, GraduationCap, Calendar, Mail } from "lucide-react";
 import { FACULTY, type Faculty } from "@/data/school";
 
@@ -83,7 +83,7 @@ function FacultyPage() {
       ) : (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filtered.map((faculty, i) => (
-            <motion.button
+            <button
               key={faculty.id}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -126,25 +126,19 @@ function FacultyPage() {
                 <Phone className="h-3 w-3" />
                 <span>{faculty.phone}</span>
               </div>
-            </motion.button>
+            </button>
           ))}
         </div>
       )}
 
       {/* Faculty Modal */}
-      <AnimatePresence>
+      <LazyPresence>
         {selectedFaculty && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+          <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
             onClick={() => setSelectedFaculty(null)}
           >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
+            <div
               className="relative max-h-[90vh] w-full max-w-md overflow-auto rounded-xl bg-card shadow-xl"
               onClick={(e) => e.stopPropagation()}
             >
@@ -224,10 +218,10 @@ function FacultyPage() {
                   )}
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         )}
-      </AnimatePresence>
+      </LazyPresence>
     </div>
   );
 }

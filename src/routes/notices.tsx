@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
+// framer-motion deferred; use non-animated elements for list to avoid bundling
 import { Bell, Download, FileText, Search, X } from "lucide-react";
 import { NOTICE_RECORDS, type NoticeRecord } from "@/data/notices";
 import { buildPdf, downloadBlob } from "@/lib/pdf";
@@ -125,10 +125,8 @@ function NoticesPage() {
         <div className="space-y-3">
           <div className="text-xs text-muted-foreground">{regular.length} notices</div>
           {regular.map((notice) => (
-            <motion.div
+            <div
               key={notice.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
               className="p-4 rounded-lg border border-border bg-card hover:shadow-md transition cursor-pointer"
               onClick={() => setPreviewNotice(notice)}
             >
@@ -172,7 +170,7 @@ function NoticesPage() {
                   <Download className="h-4 w-4 text-muted-foreground" />
                 </button>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+// framer-motion deferred; use non-animated blocks for lists
 import {
   Leaf,
   Trees,
@@ -172,17 +172,14 @@ function EcoClubPage() {
           {initiatives.map((initiative, i) => {
             const Icon = initiative.icon;
             return (
-              <motion.div
+              <div
                 key={initiative.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.08 }}
                 className="rounded-xl border border-border bg-card p-4 hover:shadow-md transition"
               >
                 <Icon className="h-6 w-6 text-green-600" />
                 <h3 className="font-semibold mt-2">{initiative.title}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{initiative.desc}</p>
-              </motion.div>
+              </div>
             );
           })}
         </div>

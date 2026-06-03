@@ -2,7 +2,8 @@
 
 import { useEffect } from "react";
 import { usePathname, Link } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { MotionDiv } from "../animations/LazyMotion";
+import { LazyPresence } from "../animations/LazyPresence";
 import { X } from "lucide-react";
 import { LogoMark } from "@/components/shared/LogoMark";
 import { cn } from "@/lib/utils";
@@ -44,17 +45,11 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   }, [isOpen]);
 
   return (
-    <AnimatePresence>
+    <LazyPresence>
       {isOpen && (
         <>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden"
-            onClick={onClose}
-          />
-          <motion.div
+          <MotionDiv initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden" onClick={onClose} />
+          <MotionDiv
             initial={{ x: "-100%" }}
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}

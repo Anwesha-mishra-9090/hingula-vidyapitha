@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+// framer-motion deferred; use CSS transitions for BackToTop button
 import { ArrowUp } from "lucide-react";
 
 export function BackToTop() {
@@ -20,18 +20,16 @@ export function BackToTop() {
   };
 
   return (
-    <AnimatePresence>
+    <>
       {visible && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
+        <button
           onClick={scrollToTop}
           className="fixed bottom-6 right-6 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 transition-all"
+          aria-label="Back to top"
         >
           <ArrowUp className="h-5 w-5" />
-        </motion.button>
+        </button>
       )}
-    </AnimatePresence>
+    </>
   );
 }

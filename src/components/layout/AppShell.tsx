@@ -55,6 +55,7 @@ export function AppShell({ children }: AppShellProps) {
 
   return (
     <div className="min-h-screen bg-background">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:px-3 focus:py-2 focus:rounded-md">Skip to content</a>
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
         <div className="container flex h-16 items-center justify-between">
@@ -131,7 +132,9 @@ export function AppShell({ children }: AppShellProps) {
       )}
 
       {/* Main Content */}
-      <main>{children}</main>
+      <main id="main-content" role="main">
+        {children}
+      </main>
 
       {/* Footer */}
       <footer className="border-t border-border bg-card mt-12">

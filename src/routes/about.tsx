@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { MotionDiv } from "@/components/animations/LazyMotion";
 import {
   Landmark,
   Target,
@@ -70,7 +70,7 @@ function AboutPage() {
   return (
     <div className="container py-8 space-y-12">
       {/* Header Section */}
-      <motion.header
+      <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/90 to-primary/60 text-white p-8 md:p-12"
@@ -85,7 +85,7 @@ function AboutPage() {
             Established in {SCHOOL.established} • {SCHOOL.affiliation}
           </p>
         </div>
-      </motion.header>
+      </MotionDiv>
 
       {/* Stats Section */}
       <section>

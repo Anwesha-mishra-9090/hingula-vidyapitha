@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyPresence } from "@/components/animations/LazyPresence";
 import { X, Phone, Mail, Briefcase, GraduationCap, Calendar, BookOpen } from "lucide-react";
 import { type Faculty } from "@/data/school";
 
@@ -13,18 +13,12 @@ export function FacultyModal({ faculty, onClose }: FacultyModalProps) {
   if (!faculty) return null;
 
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+    <LazyPresence>
+      <div
         className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
         onClick={onClose}
       >
-        <motion.div
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.95, opacity: 0 }}
+        <div
           className="relative max-h-[90vh] w-full max-w-md overflow-auto rounded-xl bg-card shadow-xl"
           onClick={(e) => e.stopPropagation()}
         >
@@ -100,8 +94,8 @@ export function FacultyModal({ faculty, onClose }: FacultyModalProps) {
               </a>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
+        </div>
+      </div>
+    </LazyPresence>
   );
 }

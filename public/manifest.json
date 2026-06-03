@@ -1,0 +1,16 @@
+{
+  "name": "Hingula Vidya Pitha",
+  "short_name": "HVP",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "description": "Government aided high school - Hingula Vidya Pitha",
+  "icons": [
+    {
+      "src": "/images/logos/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import { RouterProvider } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { router } from "./routeTree.gen";
 import "./styles/globals.css";
+import { trackPageView } from "./lib/analytics";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -23,3 +24,15 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </QueryClientProvider>
   </React.StrictMode>
 );
+
+// Register service worker for PWA (basic, progressive enhancement)
+if (typeof window !== "undefined" && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {
+      /* registration failed */
+    });
+  });
+}
+
+// Basic pageview tracking on first load
+if (typeof window !== 'undefined') trackPageView(window.location.pathname + window.location.search);

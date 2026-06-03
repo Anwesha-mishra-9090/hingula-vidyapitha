@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
-import * as Icons from "lucide-react";
+import { ArrowRight, BookOpen, Users, FlaskConical, TestTube2, Microscope, Trophy, Flag, Shield, Building2 } from "lucide-react";
+import { MotionDiv } from "../animations/LazyMotion";
 
 interface FacilityCardProps {
   slug: string;
@@ -26,14 +25,21 @@ export function FacilityCard({
   accent,
   stats,
 }: FacilityCardProps) {
-  const Icon = (Icons as any)[icon] || Icons.Building2;
+  const ICONS: Record<string, any> = {
+    BookOpen,
+    Users,
+    FlaskConical,
+    TestTube2,
+    Microscope,
+    Trophy,
+    Flag,
+    Shield,
+  };
+  const Icon = ICONS[icon] || Building2;
 
   return (
     <Link href={`/campus-life/${slug}`} className="group block">
-      <motion.div
-        whileHover={{ y: -4 }}
-        className="overflow-hidden rounded-xl border border-border bg-card transition-all hover:shadow-md"
-      >
+      <MotionDiv whileHover={{ y: -4 }} className="overflow-hidden rounded-xl border border-border bg-card transition-all hover:shadow-md">
         <div className="relative aspect-[16/10] overflow-hidden">
           <img
             src={hero}
@@ -69,7 +75,7 @@ export function FacilityCard({
             <ArrowRight className="h-4 w-4 text-primary opacity-0 transition group-hover:opacity-100" />
           </div>
         </div>
-      </motion.div>
+      </MotionDiv>
     </Link>
   );
 }

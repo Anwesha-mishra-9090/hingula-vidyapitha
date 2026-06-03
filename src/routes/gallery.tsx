@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyPresence } from "@/components/animations/LazyPresence";
 import { X, ChevronLeft, ChevronRight, Images } from "lucide-react";
 import { GALLERY_IMAGES, GALLERY_CATEGORIES } from "@/data/gallery";
 
@@ -91,11 +91,8 @@ function GalleryPage() {
       ) : (
         <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
           {filtered.map((img, i) => (
-            <motion.button
+            <button
               key={img.src}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: Math.min(i * 0.02, 0.5) }}
               onClick={() => setLightboxIndex(i)}
               className="group relative w-full overflow-hidden rounded-xl border border-border bg-muted block break-inside-avoid"
             >
@@ -114,18 +111,15 @@ function GalleryPage() {
                   <div className="text-sm font-medium leading-snug">{img.title}</div>
                 </div>
               </div>
-            </motion.button>
+            </button>
           ))}
         </div>
       )}
 
       {/* Lightbox Modal */}
-      <AnimatePresence>
+      <LazyPresence>
         {lightboxIndex !== null && currentImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+          <div
             className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
             onClick={() => setLightboxIndex(null)}
           >
@@ -146,10 +140,8 @@ function GalleryPage() {
               <ChevronLeft className="h-8 w-8" />
             </button>
 
-            <motion.img
+            <img
               key={lightboxIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
               src={currentImage.src}
               alt={currentImage.title}
               className="max-h-[85vh] max-w-[85vw] object-contain rounded-lg"
@@ -175,9 +167,9 @@ function GalleryPage() {
                 {currentImage.title} · {lightboxIndex + 1} / {filtered.length}
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
+      </LazyPresence>
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { motion } from "framer-motion";
+import { MotionDiv } from "../animations/LazyMotion";
 
 interface FacilityHeroProps {
   name: string;
@@ -15,14 +15,9 @@ interface FacilityHeroProps {
 export function FacilityHero({ name, category, tagline, hero, accent }: FacilityHeroProps) {
   return (
     <div className="relative h-[40vh] min-h-[300px] overflow-hidden rounded-2xl">
-      <motion.img
-        initial={{ scale: 1.05 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.6 }}
-        src={hero}
-        alt={name}
-        className="h-full w-full object-cover"
-      />
+      <MotionDiv initial={{ scale: 1.05 }} animate={{ scale: 1 }} transition={{ duration: 0.6 }}>
+        <img src={hero} alt={name} className="h-full w-full object-cover" />
+      </MotionDiv>
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
       <div className="absolute bottom-0 left-0 right-0 p-6 text-white">

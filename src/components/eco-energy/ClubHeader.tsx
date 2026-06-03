@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import { ScrollReveal } from "../animations/ScrollReveal";
 
 interface ClubHeaderProps {
   title: string;
@@ -37,22 +37,13 @@ export function ClubHeader({
           {subtitle}
         </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="font-display text-4xl font-bold md:text-5xl lg:text-6xl"
-        >
+        <ScrollReveal className="font-display text-4xl font-bold md:text-5xl lg:text-6xl">
           {title}
-        </motion.h1>
+        </ScrollReveal>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="mt-4 max-w-2xl text-white/80"
-        >
+        <ScrollReveal delay={0.1} className="mt-4 max-w-2xl text-white/80">
           {description}
-        </motion.p>
+        </ScrollReveal>
       </div>
     </div>
   );

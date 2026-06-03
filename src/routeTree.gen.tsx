@@ -1,26 +1,31 @@
 import { createRootRoute, createRoute, createRouter } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
+import { lazy, Suspense } from "react";
 
-// Import all route components
+// Eager load the small index page, lazy-load other routes to reduce initial bundle
 import IndexPage from "./routes/index";
-import AboutPage from "./routes/about";
-import AcademicsPage from "./routes/academics";
-import AchievementsPage from "./routes/achievements";
-import AlumniPage from "./routes/alumni";
-import CampusLifePage from "./routes/campus-life";
-import ContactPage from "./routes/contact";
-import EcoClubPage from "./routes/eco-club";
-import EnergyClubPage from "./routes/energy-club";
-import ExcellencePage from "./routes/excellence";
-import FacultyPage from "./routes/faculty";
-import GalleryPage from "./routes/gallery";
-import NccPage from "./routes/ncc";
-import NoticesPage from "./routes/notices";
+const AboutPage = lazy(() => import("./routes/about"));
+const AcademicsPage = lazy(() => import("./routes/academics"));
+const AchievementsPage = lazy(() => import("./routes/achievements"));
+const AlumniPage = lazy(() => import("./routes/alumni"));
+const CampusLifePage = lazy(() => import("./routes/campus-life"));
+const ContactPage = lazy(() => import("./routes/contact"));
+const EcoClubPage = lazy(() => import("./routes/eco-club"));
+const EnergyClubPage = lazy(() => import("./routes/energy-club"));
+const ExcellencePage = lazy(() => import("./routes/excellence"));
+const FacultyPage = lazy(() => import("./routes/faculty"));
+const GalleryPage = lazy(() => import("./routes/gallery"));
+const NccPage = lazy(() => import("./routes/ncc"));
+const NoticesPage = lazy(() => import("./routes/notices"));
 
 // Root route with AppShell layout
 const rootRoute = createRootRoute({
   component: ({ children }) => {
-    return AppShell({ children });
+    return (
+      <AppShell>
+        <Suspense fallback={<div className="py-12 text-center">Loading...</div>}>{children}</Suspense>
+      </AppShell>
+    );
   },
   notFoundComponent: () => {
     return (

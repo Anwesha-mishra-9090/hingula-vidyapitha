@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+// framer-motion deferred; use non-animated hero image
 import { useState } from "react";
 import { ArrowLeft, ChevronLeft, ChevronRight, X, ZoomIn, Building2 } from "lucide-react";
 import { FACILITIES, type Facility } from "@/data/facilities";
@@ -30,14 +30,7 @@ function FacilityDetailPage() {
 
       {/* Hero */}
       <div className="relative h-[40vh] min-h-[300px] rounded-2xl overflow-hidden mb-8">
-        <motion.img
-          initial={{ scale: 1.05 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.6 }}
-          src={f.hero}
-          alt={f.name}
-          className="h-full w-full object-cover"
-        />
+        <img src={f.hero} alt={f.name} className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
           <div className="flex items-center gap-2 mb-2">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+// framer-motion deferred; use CSS for cursor animation
 
 interface TypewriterTextProps {
   texts: string[];
@@ -41,11 +41,7 @@ export function TypewriterText({ texts, delay = 2000, className }: TypewriterTex
   return (
     <span className={className}>
       {displayText}
-      <motion.span
-        animate={{ opacity: [0, 1, 0] }}
-        transition={{ duration: 0.8, repeat: Infinity }}
-        className="inline-block w-0.5 h-5 bg-current ml-1"
-      />
+      <span className="inline-block w-0.5 h-5 bg-current ml-1 animate-pulse" />
     </span>
   );
 }

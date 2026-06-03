@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { ScrollReveal } from "../animations/ScrollReveal";
 
 interface Initiative {
   icon: React.ReactNode;
@@ -19,13 +19,7 @@ export function ClubInitiatives({ initiatives }: ClubInitiativesProps) {
       <h2 className="mb-6 font-display text-2xl font-bold">Initiatives</h2>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {initiatives.map((initiative, i) => (
-          <motion.div
-            key={initiative.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="rounded-lg border border-border bg-card p-4"
-          >
+          <ScrollReveal key={initiative.title} delay={i * 0.1} className="rounded-lg border border-border bg-card p-4">
             <div className="mb-3">{initiative.icon}</div>
             <h3 className="font-semibold">{initiative.title}</h3>
             <p className="mt-1 text-sm text-muted-foreground">{initiative.description}</p>
@@ -34,7 +28,7 @@ export function ClubInitiatives({ initiatives }: ClubInitiativesProps) {
                 {initiative.tag}
               </span>
             )}
-          </motion.div>
+          </ScrollReveal>
         ))}
       </div>
     </div>

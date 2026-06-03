@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+// framer-motion deferred; use non-animated wrappers here
 import { FacultyCard } from "./FacultyCard";
 import { FacultyFilters } from "./FacultyFilters";
 import { FacultyModal } from "./FacultyModal";
@@ -34,14 +34,9 @@ export function FacultyGrid() {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {filtered.map((faculty, i) => (
-          <motion.div
-            key={faculty.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.05 }}
-          >
+          <div key={faculty.id}>
             <FacultyCard faculty={faculty} onClick={() => setSelectedFaculty(faculty)} />
-          </motion.div>
+          </div>
         ))}
       </div>
 

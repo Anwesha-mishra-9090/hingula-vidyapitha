@@ -1,15 +1,16 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { ReactNode } from "react";
+import { LazyPresence } from "../components/animations/LazyPresence";
+import { MotionDiv } from "../components/animations/LazyMotion";
 import { pageTransition } from "./animations";
 
 export function PageTransition({ children }: { children: ReactNode }) {
   return (
-    <AnimatePresence mode="wait">
-      <motion.div initial="initial" animate="animate" exit="exit" variants={pageTransition}>
+    <LazyPresence>
+      <MotionDiv initial="initial" animate="animate" exit="exit" variants={pageTransition}>
         {children}
-      </motion.div>
-    </AnimatePresence>
+      </MotionDiv>
+    </LazyPresence>
   );
 }

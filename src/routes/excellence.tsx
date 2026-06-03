@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { MotionDiv } from "@/components/animations/LazyMotion";
 import { useState, useMemo } from "react";
 import { Trophy, Star, TrendingUp, Crown, Award, Search } from "lucide-react";
 import { TOPPERS, TOPPER_STATS } from "@/data/toppers";
@@ -87,7 +87,7 @@ function ExcellencePage() {
         {stats.map((s, i) => {
           const Icon = s.icon;
           return (
-            <motion.div
+            <MotionDiv
               key={s.label}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -98,7 +98,7 @@ function ExcellencePage() {
               <div className="font-display text-3xl font-bold">{s.value}</div>
               <div className="text-xs text-muted-foreground uppercase mt-2">{s.label}</div>
               <div className="text-xs text-muted-foreground/80 mt-1">{s.sub}</div>
-            </motion.div>
+            </MotionDiv>
           );
         })}
       </div>
@@ -111,7 +111,7 @@ function ExcellencePage() {
             .sort((a, b) => b.marks - a.marks)
             .slice(0, 6)
             .map((t, i) => (
-              <motion.div
+              <MotionDiv
                 key={`${t.year}-${t.name}`}
                 initial={{ opacity: 0, scale: 0.97 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -131,7 +131,7 @@ function ExcellencePage() {
                   </span>
                   <span className="text-xs text-muted-foreground">/ 600 · BSE Odisha</span>
                 </div>
-              </motion.div>
+              </MotionDiv>
             ))}
         </div>
       </section>
