@@ -25,12 +25,17 @@ export function AdmissionsPage() {
           <li>Submit at the office during working hours or mail to the address listed on Contact.</li>
         </ol>
 
-        <div className="mt-6 flex gap-3">
-          <Link to="/contact" className="px-4 py-2 rounded bg-primary text-primary-foreground">
-            Contact Office
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded bg-primary text-primary-foreground hover:bg-primary/90 transition">
+            <span>Contact Office</span>
           </Link>
-          <a href="/pdfs/admission-form.pdf" className="px-4 py-2 rounded bg-accent">
-            Download Form
+          <a
+            href="/pdfs/admission-form.pdf"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded bg-accent text-white hover:bg-accent/90 transition"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Download Form</span>
           </a>
         </div>
 

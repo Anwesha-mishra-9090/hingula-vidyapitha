@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface LogoMarkProps {
@@ -14,13 +13,12 @@ export function LogoMark({ size = 40, className, withText = false, textClassName
   return (
     <div className={cn("flex items-center gap-2", className)}>
       <div className="relative flex-shrink-0">
-        <Image
+        <img
           src="/images/logos/logo.svg"
           alt="Hingula Vidya Pitha Logo"
           width={size}
           height={size}
-          className="rounded-full ring-1 ring-gold/30 shadow-md"
-          priority
+          className="h-auto w-auto rounded-full ring-1 ring-gold/30 shadow-md"
         />
         <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-1 ring-white dark:ring-gray-900" />
       </div>

@@ -89,27 +89,27 @@ function GalleryPage() {
           No images found in this category.
         </div>
       ) : (
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filtered.map((img, i) => (
             <button
               key={img.src}
               onClick={() => setLightboxIndex(i)}
-              className="group relative w-full overflow-hidden rounded-xl border border-border bg-muted block break-inside-avoid"
+              className="group relative overflow-hidden rounded-xl border border-border bg-muted"
             >
-              <img
-                src={img.src}
-                alt={img.title}
-                loading="lazy"
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                <div className="text-white">
-                  <div className="text-[10px] uppercase tracking-wider text-gold font-semibold">
-                    {img.cat}
-                    {img.date ? ` · ${img.date}` : ""}
-                  </div>
-                  <div className="text-sm font-medium leading-snug">{img.title}</div>
+              <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                <img
+                  src={img.src}
+                  alt={img.title}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-3">
+                <div className="text-[10px] uppercase tracking-wider text-gold font-semibold">
+                  {img.cat}
+                  {img.date ? ` · ${img.date}` : ""}
                 </div>
+                <div className="mt-2 text-sm font-medium leading-snug text-muted-foreground">{img.title}</div>
               </div>
             </button>
           ))}

@@ -35,8 +35,8 @@ export function Header({ onMenuClick, onSearchClick }: HeaderProps) {
           <Button variant="ghost" size="icon" className="lg:hidden" onClick={onMenuClick}>
             <Menu className="h-5 w-5" />
           </Button>
+          <LogoMark size={32} />
           <div className="hidden lg:flex items-center gap-2">
-            <LogoMark size={32} />
             <span className="text-sm font-semibold">Hingula Vidya Pitha</span>
           </div>
         </div>

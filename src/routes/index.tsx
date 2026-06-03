@@ -11,6 +11,7 @@ import {
   Trophy,
   Users,
 } from "lucide-react";
+import { LogoMark } from "@/components/shared/LogoMark";
 import { SCHOOL, STATS, NOTICES, ACHIEVEMENTS, FACULTY } from "@/data/school";
 
 export const Route = createFileRoute("/")({
@@ -22,7 +23,14 @@ function IndexPage() {
     <div className="container py-8 space-y-8">
       {/* Hero Section */}
       <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/90 to-primary/60 text-white p-8 md:p-12">
-        <div className="relative z-10">
+        <div className="relative z-10 space-y-6">
+          <div className="flex flex-wrap items-center gap-4">
+            <LogoMark size={48} className="bg-white/10 p-2 rounded-full" />
+            <div>
+              <div className="text-xs uppercase tracking-[0.3em] text-white/70">Hingula Vidya Pitha</div>
+              <div className="text-sm text-white/80">Government Aided High School, Bhotaka</div>
+            </div>
+          </div>
           <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold">{SCHOOL.name}</h1>
           <p className="text-white/90 text-lg mt-3 max-w-2xl">{SCHOOL.motto}</p>
           <p className="text-white/70 text-sm mt-1">
