@@ -25,7 +25,7 @@ export function ClubHeader({
   return (
     <div className="relative overflow-hidden rounded-2xl">
       <div className="absolute inset-0">
-        <img src={heroImage} alt={title} className="h-full w-full object-cover" />
+          <LazyImage src={heroImage} alt={title} className="h-full w-full object-cover" aspectRatio="16/9" />
         <div
           className={`absolute inset-0 bg-gradient-to-r from-${gradientFrom}/90 to-${gradientTo}/70`}
         />

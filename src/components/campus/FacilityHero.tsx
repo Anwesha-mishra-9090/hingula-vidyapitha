@@ -36,7 +36,7 @@ export function FacilityHero({ name, category, tagline, hero, accent }: Facility
             {category}
           </span>
         </div>
-        <h1 className="mt-2 font-display text-3xl font-bold md:text-4xl lg:text-5xl">{name}</h1>
+                  <LazyImage src={hero} alt={name} className="h-full w-full object-cover" aspectRatio="16/9" />
         <p className="mt-2 max-w-2xl text-white/80">{tagline}</p>
       </div>
     </div>

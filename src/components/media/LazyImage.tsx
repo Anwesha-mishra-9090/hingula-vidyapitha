@@ -7,9 +7,10 @@ interface LazyImageProps {
   alt: string;
   className?: string;
   placeholderColor?: string;
+  aspectRatio?: string; // e.g. '16/9' or '4/3'
 }
 
-export function LazyImage({ src, alt, className, placeholderColor = "#f0f0f0" }: LazyImageProps) {
+export function LazyImage({ src, alt, className, placeholderColor = "#f0f0f0", aspectRatio = '16/9' }: LazyImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -34,8 +35,11 @@ export function LazyImage({ src, alt, className, placeholderColor = "#f0f0f0" }:
     return () => observer.disconnect();
   }, []);
 
+  const style: any = { backgroundColor: placeholderColor };
+  if (aspectRatio) style.aspectRatio = aspectRatio;
+
   return (
-    <div className={`relative overflow-hidden ${className}`} style={{ backgroundColor: placeholderColor }}>
+    <div className={`relative overflow-hidden ${className}`} style={style}>
       {isInView && (
         <>
           {

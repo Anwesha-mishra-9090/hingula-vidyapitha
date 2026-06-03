@@ -13,7 +13,7 @@ export function NCCHeader({ title, subtitle, heroImage }: NCCHeaderProps) {
   return (
     <div className="relative overflow-hidden rounded-2xl">
       <div className="absolute inset-0">
-        <img src={heroImage} alt="NCC" className="h-full w-full object-cover" />
+          <LazyImage src={heroImage} alt="NCC" className="h-full w-full object-cover" aspectRatio="16/9" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/50" />
       </div>
 
