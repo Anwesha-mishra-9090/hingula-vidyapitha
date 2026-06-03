@@ -1,5 +1,3 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
-
 const SUPABASE_URL = process.env.SUPABASE_URL || "";
 const SUPABASE_KEY = process.env.SUPABASE_KEY || "";
 const ADMIN_SECRET = process.env.ADMIN_SECRET || "";
@@ -68,7 +66,7 @@ async function fetchFromSupabase() {
   return res.json();
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: any, res: any) {
   try {
     if (req.method === "POST") {
       const body = req.body;
