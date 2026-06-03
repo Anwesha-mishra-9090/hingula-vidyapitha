@@ -3,6 +3,9 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 const SUPABASE_URL = process.env.SUPABASE_URL || "";
 const SUPABASE_KEY = process.env.SUPABASE_KEY || "";
 const ADMIN_SECRET = process.env.ADMIN_SECRET || "";
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || "";
+const SENDGRID_FROM = process.env.SENDGRID_FROM || "no-reply@school.example";
+const SENDGRID_TO = process.env.SENDGRID_TO || "";
 
 async function insertToSupabase(payload: any) {
   if (!SUPABASE_URL || !SUPABASE_KEY) return null;
@@ -19,6 +22,37 @@ async function insertToSupabase(payload: any) {
   });
   if (!res.ok) throw new Error(`Supabase insert failed ${res.status}`);
   return res.json();
+}
+
+async function sendConfirmationEmail(payload: any) {
+  if (!SENDGRID_API_KEY || !SENDGRID_TO) return null;
+  const body = {
+    personalizations: [
+      {
+        to: [{ email: SENDGRID_TO }],
+        subject: `New booking: ${payload.event} - ${payload.name}`,
+      },
+    ],
+    from: { email: SENDGRID_FROM },
+    content: [
+      {
+        type: 'text/plain',
+        value: `A new booking was received:\n\nName: ${payload.name}\nPhone: ${payload.phone}\nEvent: ${payload.event}\nDate: ${payload.date}\n\nMeta: ${JSON.stringify(payload.meta || {})}`,
+      },
+    ],
+  };
+
+  const res = await fetch('https://api.sendgrid.com/v3/mail/send', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${SENDGRID_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (!res.ok) throw new Error('SendGrid send failed ' + res.status);
+  return true;
 }
 
 async function fetchFromSupabase() {
@@ -45,13 +79,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.log("[bookings] received", body);
 
       // Attempt to persist to Supabase if configured
+      let saved = false;
       try {
         const inserted = await insertToSupabase({ name: body.name, phone: body.phone, event: body.event, date: body.date, meta: body.meta || null });
-        return res.status(200).json({ ok: true, saved: !!inserted });
+        saved = !!inserted;
       } catch (err) {
         console.warn("[bookings] supabase failed, falling back to noop", err);
-        return res.status(200).json({ ok: true, saved: false });
+        saved = false;
       }
+
+      // Attempt to send notification email to admin (optional)
+      try {
+        if (SENDGRID_API_KEY && SENDGRID_TO) await sendConfirmationEmail(body);
+      } catch (e) {
+        console.warn('[bookings] sendgrid failed', e);
+      }
+
+      return res.status(200).json({ ok: true, saved });
     }
 
     // Admin: list bookings (protected by ADMIN_SECRET header)

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { trackEvent } from "../../lib/analytics";
 
 interface Booking {
   id: string;
@@ -30,6 +31,7 @@ export function EventBooking({ event }: { event: string }) {
     if (!name || !phone || !date) return;
     const b: Booking = { id: Date.now().toString(), name, phone, event, date };
     setBookings((s) => [b, ...s]);
+    let saved = false;
     // Try to persist to serverless endpoint; fallback to localStorage only
     (async () => {
       try {
@@ -39,7 +41,8 @@ export function EventBooking({ event }: { event: string }) {
           body: JSON.stringify(b),
         });
         // track event if analytics present
-        try { (window as any).trackEvent?.('booking', { event: b.event, date: b.date }); } catch {}
+        try { trackEvent('booking_success', { event: b.event, date: b.date, name: b.name }); } catch {}
+        saved = true;
       } catch (err) {
         // ignore — localStorage keeps booking
       }
@@ -47,6 +50,7 @@ export function EventBooking({ event }: { event: string }) {
     setName("");
     setPhone("");
     setDate("");
+    if (saved) alert('Booking submitted — confirmation sent.');
   }
 
   return (
