@@ -4,7 +4,7 @@ import { RouterProvider } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { router } from "./routeTree.gen";
 import "./styles/globals.css";
-import { trackPageView } from "./lib/analytics";
+import analytics, { initAnalytics, trackPageView } from "./lib/analytics";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -35,4 +35,6 @@ if (typeof window !== "undefined" && 'serviceWorker' in navigator) {
 }
 
 // Basic pageview tracking on first load
-if (typeof window !== 'undefined') trackPageView(window.location.pathname + window.location.search);
+if (typeof window !== 'undefined') {
+  initAnalytics().then(() => trackPageView(window.location.pathname + window.location.search));
+}
