@@ -1,12 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import React from "react";
+import ContactForm from "@/components/mvp/ContactForm";
 
 export const Route = createFileRoute("/admissions")({
   component: AdmissionsPage,
 });
 
 export function AdmissionsPage() {
+  import("@/lib/seo").then((m) => m.setMeta("Admissions - Hingula Vidya Pitha", "Admissions information and application"));
   return (
     <div className="container py-12">
       <div className="rounded-2xl border border-border bg-card p-8">
@@ -30,6 +32,11 @@ export function AdmissionsPage() {
           <a href="/pdfs/admission-form.pdf" className="px-4 py-2 rounded bg-accent">
             Download Form
           </a>
+        </div>
+
+        <div className="mt-8">
+          <h2 className="font-semibold mb-2">Contact Admissions</h2>
+          <ContactForm />
         </div>
       </div>
     </div>

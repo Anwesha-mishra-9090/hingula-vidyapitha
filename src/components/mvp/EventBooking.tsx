@@ -30,6 +30,20 @@ export function EventBooking({ event }: { event: string }) {
     if (!name || !phone || !date) return;
     const b: Booking = { id: Date.now().toString(), name, phone, event, date };
     setBookings((s) => [b, ...s]);
+    // Try to persist to serverless endpoint; fallback to localStorage only
+    (async () => {
+      try {
+        await fetch('/api/bookings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(b),
+        });
+        // track event if analytics present
+        try { (window as any).trackEvent?.('booking', { event: b.event, date: b.date }); } catch {}
+      } catch (err) {
+        // ignore — localStorage keeps booking
+      }
+    })();
     setName("");
     setPhone("");
     setDate("");

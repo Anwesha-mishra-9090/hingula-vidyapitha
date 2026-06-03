@@ -7,6 +7,7 @@ export const Route = createFileRoute("/alumni-portal")({
 });
 
 export function AlumniPortalPage() {
+  import("@/lib/seo").then((m) => m.setMeta("Alumni Portal - Hingula Vidya Pitha", "Search and connect with alumni"));
   return (
     <div className="container py-12">
       <h1 className="font-display text-3xl font-bold mb-4">Alumni Portal (MVP)</h1>

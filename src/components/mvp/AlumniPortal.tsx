@@ -19,6 +19,9 @@ export function AlumniPortal() {
           <div key={`${r.name}-${r.batch}`} className="p-2 rounded hover:bg-accent transition">
             <div className="font-semibold">{r.name} <span className="text-xs text-muted-foreground">({r.batch})</span></div>
             <div className="text-sm text-muted-foreground">{r.profession} — {r.workplace}</div>
+            <div className="mt-1">
+              <a href={`mailto:${r.email || 'info@hingula.org'}`} className="text-primary text-sm">Contact</a>
+            </div>
           </div>
         ))}
       </div>

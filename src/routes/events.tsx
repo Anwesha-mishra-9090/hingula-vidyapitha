@@ -7,6 +7,7 @@ export const Route = createFileRoute("/events")({
 });
 
 export function EventsPage() {
+  import("@/lib/seo").then((m) => m.setMeta("Events - Hingula Vidya Pitha", "School events and booking"));
   const events = [
     { id: "founders-day", title: "Founder's Day Celebration", date: "2026-08-15" },
     { id: "sports-meet", title: "Annual Sports Meet", date: "2026-12-05" },

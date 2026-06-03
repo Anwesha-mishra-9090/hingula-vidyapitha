@@ -7,6 +7,7 @@ export const Route = createFileRoute("/campus-map")({
 });
 
 export function CampusMapPage() {
+  import("@/lib/seo").then((m) => m.setMeta("Campus Map - Hingula Vidya Pitha", "Explore the campus facilities"));
   return (
     <div className="container py-12">
       <h1 className="font-display text-3xl font-bold mb-4">Interactive Campus Map (MVP)</h1>
